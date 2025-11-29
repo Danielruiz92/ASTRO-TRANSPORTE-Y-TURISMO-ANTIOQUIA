@@ -1,0 +1,46 @@
+---
+interface Props {
+  texto: string;
+  variante: 'primario' | 'secundario' | 'neutro';
+  clasePersonalizada?: string;
+}
+
+const { texto, variante, clasePersonalizada = '' } = Astro.props;
+
+// Configuración de colores según la variante
+const configuraciones = {
+  primario: {
+    bg: 'bg-[#077b4c]',
+    hoverBg: 'hover:bg-[#066840]',
+    glow: 'bg-[#077b4c]',
+  },
+  secundario: {
+    bg: 'bg-[#148ae4]',
+    hoverBg: 'hover:bg-[#0f72c4]',
+    glow: 'bg-[#148ae4]',
+  },
+  neutro: {
+    bg: 'bg-gray-600',
+    hoverBg: 'hover:bg-gray-700',
+    glow: 'bg-gray-600',
+  },
+};
+
+const config = configuraciones[variante];
+---
+
+<div class="group relative">
+  <button
+    class={`relative w-full transform overflow-hidden rounded-2xl ${config.bg} ${config.hoverBg} px-8 py-4 font-[Poppins] text-lg font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 ${clasePersonalizada}`}
+  >
+    <span class="relative z-10">{texto}</span>
+    <div
+      class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+    >
+    </div>
+  </button>
+  <div
+    class="${config.glow} absolute inset-0 -z-10 rounded-2xl opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-30"
+  >
+  </div>
+</div>
