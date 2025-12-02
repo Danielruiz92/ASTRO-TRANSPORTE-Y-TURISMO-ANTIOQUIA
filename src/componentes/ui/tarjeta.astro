@@ -1,0 +1,69 @@
+---
+interface Props {
+  titulo: string;
+  descripcion: string;
+  precio?: string;
+  imagen?: string;
+  colorTema?: 'primario' | 'secundario' | 'neutro';
+}
+
+const {
+  titulo,
+  descripcion,
+  precio,
+  imagen = '/Imagenes/Dummy.webp',
+  colorTema = 'primario',
+} = Astro.props;
+
+// Configuración de colores según el tema
+const colores = {
+  primario: {
+    boton: 'bg-[#077b4c] hover:bg-[#066840]',
+    precio: 'text-[#077b4c]',
+  },
+  secundario: {
+    boton: 'bg-[#148ae4] hover:bg-[#0f72c4]',
+    precio: 'text-[#148ae4]',
+  },
+  neutro: {
+    boton: 'bg-gray-700 hover:bg-gray-800',
+    precio: 'text-gray-700',
+  },
+};
+
+const color = colores[colorTema];
+---
+
+<!-- Tarjeta con estilo de Guatapé: efecto de elevación y zoom -->
+<div
+  class="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+>
+  <!-- Imagen con overlay -->
+  <div class="relative h-48 overflow-hidden">
+    <img
+      src={imagen}
+      alt={titulo}
+      class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+    />
+    <div
+      class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+    >
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="p-6">
+    <h3 class="mb-2 font-[Poppins] text-xl font-bold text-gray-800">{titulo}</h3>
+    <p class="mb-4 font-[Inter] text-gray-600">{descripcion}</p>
+
+    <!-- Pie de tarjeta -->
+    <div class="flex items-center justify-between">
+      {precio && <span class={`font-[Poppins] font-semibold ${color.precio}`}>{precio}</span>}
+      <button
+        class={`rounded-lg ${color.boton} px-4 py-2 font-[Poppins] text-sm font-medium text-white transition-colors duration-300`}
+      >
+        Ver más
+      </button>
+    </div>
+  </div>
+</div>
