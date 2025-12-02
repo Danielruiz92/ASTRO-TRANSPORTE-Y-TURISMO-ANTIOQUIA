@@ -7,17 +7,17 @@ interface Props {
 
 const { texto, variante, clasePersonalizada = '' } = Astro.props;
 
-// Configuración de colores según la variante
+// Configuración de colores según la variante usando variables del tema
 const configuraciones = {
   primario: {
-    bg: 'bg-[#077b4c]',
-    hoverBg: 'hover:bg-[#066840]',
-    glow: 'bg-[#077b4c]',
+    bg: 'bg-primary',
+    hoverBg: 'hover:bg-primary-hover',
+    glow: 'bg-primary',
   },
   secundario: {
-    bg: 'bg-[#148ae4]',
-    hoverBg: 'hover:bg-[#0f72c4]',
-    glow: 'bg-[#148ae4]',
+    bg: 'bg-secondary',
+    hoverBg: 'hover:bg-secondary-hover',
+    glow: 'bg-secondary',
   },
   neutro: {
     bg: 'bg-gray-600',

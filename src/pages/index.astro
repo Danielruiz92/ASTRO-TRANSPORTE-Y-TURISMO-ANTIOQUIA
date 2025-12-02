@@ -1,119 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Boton from '../componentes/ui/boton.astro';
-import Tarjeta from '../componentes/ui/tarjeta.astro';
-
-// Definición del tipo para los destinos
-type Destino = {
-  titulo: string;
-  descripcion: string;
-  precio: string;
-  imagen: string;
-  colorTema: 'primario' | 'secundario' | 'neutro';
-};
-
-// Datos de los destinos turísticos
-const destinos: Destino[] = [
-  {
-    titulo: 'Guatapé',
-    descripcion: 'Pueblo colorido con arquitectura única y paisajes espectaculares.',
-    precio: '$120.000',
-    imagen: '/Imagenes/Dummy.webp',
-    colorTema: 'primario',
-  },
-  {
-    titulo: 'Medellín',
-    descripcion: 'Ciudad de la eterna primavera con cultura y modernidad.',
-    precio: '$150.000',
-    imagen: '/Imagenes/Dummy.webp',
-    colorTema: 'secundario',
-  },
-  {
-    titulo: 'Santa Fe',
-    descripcion: 'Historia colonial y paisajes montañosos impresionantes.',
-    precio: '$100.000',
-    imagen: '/Imagenes/Dummy.webp',
-    colorTema: 'neutro',
-  },
-  {
-    titulo: 'Jardín',
-    descripcion: 'Corazón del café con fincas y naturaleza exuberante.',
-    precio: '$180.000',
-    imagen: '/Imagenes/Dummy.webp',
-    colorTema: 'primario',
-  },
-  {
-    titulo: 'Rionegro',
-    descripcion: 'Moderno centro comercial y empresarial del oriente.',
-    precio: '$90.000',
-    imagen: '/Imagenes/Dummy.webp',
-    colorTema: 'secundario',
-  },
-  {
-    titulo: 'Envigado',
-    descripcion: 'Ciudad elegante con centros comerciales y gastronomía.',
-    precio: '$110.000',
-    imagen: '/Imagenes/Dummy.webp',
-    colorTema: 'neutro',
-  },
-];
+import Hero from '../componentes/home/Hero.astro';
+import ServicesSection from '../componentes/home/ServicesSection.astro';
+import FleetPreview from '../componentes/home/FleetPreview.astro';
+import TestimonialsSection from '../componentes/home/TestimonialsSection.astro';
+import ClientLogos from '../componentes/home/ClientLogos.astro';
+import ContactCTA from '../componentes/home/ContactCTA.astro';
 ---
 
 <Layout>
-  <main class="container mx-auto px-4 py-16">
-    <!-- Header -->
-    <header class="mb-16 text-center">
-      <h1
-        class="mb-4 bg-linear-to-r from-emerald-600 to-blue-500 bg-clip-text font-[Poppins] text-5xl font-bold text-transparent md:text-6xl"
-      >
-        Astro Transporte y Turismo
-      </h1>
-      <p class="mx-auto max-w-2xl font-[Inter] text-xl text-gray-600">
-        Descubre la mejor experiencia en transporte y turismo en Antioquia con servicios
-        profesionales y seguros
-      </p>
-    </header>
-
-    <!-- Botones Tours Turísticos -->
-    <section class="mb-20">
-      <h2 class="mb-12 text-center font-[Poppins] text-3xl font-semibold text-gray-800">
-        Tours Turísticos
-      </h2>
-
-      <div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3">
-        <!-- Botón Tours Turísticos - Color Primario -->
-        <Boton texto="Tours Turísticos" variante="primario" />
-
-        <!-- Botón Tours Turísticos - Color Secundario -->
-        <Boton texto="Tours Turísticos" variante="secundario" />
-
-        <!-- Botón Tours Turísticos - Color Neutro -->
-        <Boton texto="Tours Turísticos" variante="neutro" />
-      </div>
-    </section>
-
-    <!-- Sección de Contenedores Atractivos -->
-    <section class="mb-20">
-      <h2 class="mb-12 text-center font-[Poppins] text-3xl font-semibold text-gray-800">
-        Descubre Nuestros Destinos
-      </h2>
-
-      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {
-          destinos.map((destino) => {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-            return (
-              <Tarjeta
-                titulo={destino.titulo}
-                descripcion={destino.descripcion}
-                precio={destino.precio}
-                colorTema={destino.colorTema}
-                imagen={destino.imagen}
-              />
-            );
-          })
-        }
-      </div>
-    </section>
-  </main>
+  <Hero />
+  <ServicesSection />
+  <FleetPreview />
+  <TestimonialsSection />
+  <ClientLogos />
+  <ContactCTA />
 </Layout>

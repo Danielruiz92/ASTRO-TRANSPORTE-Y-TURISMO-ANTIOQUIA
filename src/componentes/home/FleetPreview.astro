@@ -1,0 +1,46 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import Tarjeta from '../ui/tarjeta.astro';
+import Boton from '../ui/boton.astro';
+---
+
+<section class="bg-gray-50 py-16">
+  <div class="container mx-auto px-4">
+    <SectionTitle
+      titulo="Nuestra Flota Moderna"
+      subtitulo="Vehículos confortables y seguros para todo tipo de necesidades"
+    />
+
+    <div class="mb-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+      <!-- Automóviles/Camionetas -->
+      <Tarjeta
+        titulo="Automóviles/Camionetas"
+        imagen="https://images.unsplash.com/photo-1550355291-bbee04a92056?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        descripcion="Ideal para traslados ejecutivos rápidos. 1-4 pasajeros."
+        colorTema="secundario"
+      />
+
+      <!-- Vans/Minivans -->
+      <Tarjeta
+        titulo="Vans/Minivans"
+        imagen="https://images.unsplash.com/photo-1576934186997-7bf214ff53c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        descripcion="Perfecto para grupos pequeños y familias. 7-19 pasajeros."
+        colorTema="secundario"
+      />
+
+      <!-- Busetas/Buses -->
+      <Tarjeta
+        titulo="Busetas/Buses"
+        imagen="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        descripcion="Para grandes eventos y turismo masivo. 20-40 pasajeros."
+        colorTema="secundario"
+      />
+    </div>
+
+    <div class="text-center">
+      <Boton texto="Ver toda la flota" variante="secundario" />
+    </div>
+  </div>
+</section>
+
+<style></style>

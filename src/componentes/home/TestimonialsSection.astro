@@ -1,0 +1,85 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+---
+
+<section class="bg-white py-16">
+  <div class="container mx-auto px-4">
+    <SectionTitle
+      titulo="Lo que dicen nuestros clientes"
+      subtitulo="Conoce las experiencias de quienes han confiado en nuestros servicios"
+    />
+
+    <!-- Grid de 3 tarjetas de testimonios -->
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      <!-- Testimonio 1: Empresa -->
+      <div class="rounded-lg bg-white p-6 shadow-md">
+        <!-- Icono de comillas -->
+        <div class="text-primary/20 mb-4 text-6xl">"</div>
+
+        <!-- Texto del testimonio -->
+        <p class="mb-6 leading-relaxed text-gray-700">
+          Excelente servicio para nuestra convención anual. Los conductores fueron puntuales,
+          profesionales y los vehículos impecables. Sin duda, nuestra mejor elección para transporte
+          corporativo.
+        </p>
+
+        <!-- Autor y cargo -->
+        <div class="flex items-center">
+          <div class="bg-primary/20 mr-4 h-12 w-12 rounded-full"></div>
+          <div>
+            <h4 class="text-dark font-semibold">Carlos Rodríguez</h4>
+            <p class="text-sm text-gray-500">Gerente de Operaciones</p>
+            <p class="text-primary text-sm">Tecnosoluciones S.A.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonio 2: Turismo Familiar -->
+      <div class="rounded-lg bg-white p-6 shadow-md">
+        <!-- Icono de comillas -->
+        <div class="text-primary/20 mb-4 text-6xl">"</div>
+
+        <!-- Texto del testimonio -->
+        <p class="mb-6 leading-relaxed text-gray-700">
+          Contratamos sus servicios para un viaje familiar a Guatapé y fue una experiencia
+          maravillosa. El conductor fue muy amable, nos dio recomendaciones y el vehículo era cómodo
+          y seguro.
+        </p>
+
+        <!-- Autor y cargo -->
+        <div class="flex items-center">
+          <div class="bg-primary/20 mr-4 h-12 w-12 rounded-full"></div>
+          <div>
+            <h4 class="text-dark font-semibold">Ana María Gómez</h4>
+            <p class="text-sm text-gray-500">Madre de familia</p>
+            <p class="text-primary text-sm">Viaje familiar</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonio 3: Transporte Escolar -->
+      <div class="rounded-lg bg-white p-6 shadow-md">
+        <!-- Icono de comillas -->
+        <div class="text-primary/20 mb-4 text-6xl">"</div>
+
+        <!-- Texto del testimonio -->
+        <p class="mb-6 leading-relaxed text-gray-700">
+          Llevamos 3 años trabajando con ellos para el transporte escolar de nuestros estudiantes.
+          Son responsables, puntuales y los padres están tranquilos con la seguridad de sus hijos.
+        </p>
+
+        <!-- Autor y cargo -->
+        <div class="flex items-center">
+          <div class="bg-primary/20 mr-4 h-12 w-12 rounded-full"></div>
+          <div>
+            <h4 class="text-dark font-semibold">Luis Fernando Martínez</h4>
+            <p class="text-sm text-gray-500">Rector</p>
+            <p class="text-primary text-sm">Colegio La Presentation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style></style>

@@ -1,45 +1,38 @@
-// eslint.config.mjs
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import astro from 'eslint-plugin-astro';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-  // Ignora outputs y dependencias
+  // 1. Ignorar archivos de build y caché
   {
     ignores: ['dist/**', '.astro/**', 'node_modules/**', '.vercel/**', '.netlify/**'],
   },
 
-  // Reglas recomendadas JS
+  // 2. Configuración Base de JS
   js.configs.recommended,
 
-  // Reglas recomendadas TS (sin y con type-checking)
-  ...tseslint.configs.recommended, // sintaxis/semántica básicas
-  ...tseslint.configs.recommendedTypeChecked, // requiere tsconfig para checks con tipos
-  {
-    languageOptions: {
-      parserOptions: {
-        project: true, // autodetecta tsconfig.json
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-    rules: {
-      // ejemplos útiles sin ser estrictos
-      '@typescript-eslint/consistent-type-imports': 'warn',
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-    },
-  },
+  // 3. Configuración Base de TypeScript (para archivos .ts, .tsx)
+  ...tseslint.configs.recommended,
 
-  // Reglas recomendadas para archivos .astro
-  ...astro.configs.recommended, // parser + reglas sugeridas
+  // 4. Configuración Base de Astro
+  ...astro.configs.recommended,
+
+  // 5. OVERRIDE CRÍTICO: Configuración específica para Astro + TypeScript
   {
     files: ['**/*.astro'],
-    rules: {
-      // Puedes endurecer reglas específicas si quieres:
-      // 'astro/no-set-html-directive': 'error',
+    languageOptions: {
+      // Usar el parser de Astro para la estructura del archivo
+      parser: astro.parser, 
+      parserOptions: {
+        // Usar el parser de TS para el contenido del script (frontmatter)
+        parser: tseslint.parser,
+        extraFileExtensions: ['.astro'],
+        sourceType: 'module',
+      },
     },
   },
 
+  // 6. Prettier (siempre al final para desactivar reglas de formato conflictivas)
   eslintConfigPrettier,
 ];

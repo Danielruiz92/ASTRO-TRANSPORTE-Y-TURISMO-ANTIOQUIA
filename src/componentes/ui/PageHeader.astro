@@ -1,0 +1,41 @@
+---
+interface Props {
+  titulo: string;
+  subtitulo?: string;
+  imagenFondo: string;
+}
+
+const { titulo, subtitulo, imagenFondo } = Astro.props;
+---
+
+<!-- Sección Header con imagen de fondo y overlay oscuro -->
+<section class="relative min-h-[40vh]">
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0">
+    <img src={imagenFondo} alt={titulo} class="h-full w-full object-cover" />
+    <!-- Gradiente oscuro superpuesto -->
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <!-- Contenido centrado verticalmente -->
+  <div class="relative z-10 flex min-h-[40vh] items-center">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl text-center">
+        <!-- Título principal -->
+        <h1 class="mb-4 font-[Poppins] text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+          {titulo}
+        </h1>
+
+        <!-- Subtítulo opcional -->
+        {subtitulo && <p class="font-[Poppins] text-lg text-gray-200 md:text-xl">{subtitulo}</p>}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Aseguramos que la sección ocupe la altura mínima especificada */
+  section {
+    min-height: 40vh;
+  }
+</style>

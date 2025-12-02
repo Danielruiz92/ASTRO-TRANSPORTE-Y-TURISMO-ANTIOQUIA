@@ -1,0 +1,181 @@
+---
+// Componente de formulario de contacto
+---
+
+<form class="space-y-6" onsubmit="handleSubmit(event)">
+  <!-- Nombre completo -->
+  <div>
+    <label for="nombre" class="text-dark mb-2 block font-[Poppins] text-sm font-medium">
+      Nombre completo *
+    </label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      required
+      class="focus:border-primary focus:ring-primary/20 w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] text-gray-900 placeholder-gray-500 transition-colors duration-200 focus:ring-2"
+      placeholder="Tu nombre completo"
+    />
+  </div>
+
+  <!-- Email -->
+  <div>
+    <label for="email" class="text-dark mb-2 block font-[Poppins] text-sm font-medium">
+      Correo electrónico *
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="focus:border-primary focus:ring-primary/20 w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] text-gray-900 placeholder-gray-500 transition-colors duration-200 focus:ring-2"
+      placeholder="tu@email.com"
+    />
+  </div>
+
+  <!-- Teléfono -->
+  <div>
+    <label for="telefono" class="text-dark mb-2 block font-[Poppins] text-sm font-medium">
+      Teléfono *
+    </label>
+    <input
+      type="tel"
+      id="telefono"
+      name="telefono"
+      required
+      class="focus:border-primary focus:ring-primary/20 w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] text-gray-900 placeholder-gray-500 transition-colors duration-200 focus:ring-2"
+      placeholder="300 000 0000"
+    />
+  </div>
+
+  <!-- Tipo de servicio -->
+  <div>
+    <label for="tipo-servicio" class="text-dark mb-2 block font-[Poppins] text-sm font-medium">
+      Tipo de servicio *
+    </label>
+    <select
+      id="tipo-servicio"
+      name="tipo-servicio"
+      required
+      class="focus:border-primary focus:ring-primary/20 w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] text-gray-900 transition-colors duration-200 focus:ring-2"
+    >
+      <option value="">Selecciona un tipo de servicio</option>
+      <option value="turismo">Transporte Turístico</option>
+      <option value="empresarial">Transporte Empresarial</option>
+      <option value="salud">Transporte Salud (EPS/IPS)</option>
+      <option value="escolar">Transporte Escolar</option>
+      <option value="otro">Otro</option>
+    </select>
+  </div>
+
+  <!-- Mensaje -->
+  <div>
+    <label for="mensaje" class="text-dark mb-2 block font-[Poppins] text-sm font-medium">
+      Mensaje *
+    </label>
+    <textarea
+      id="mensaje"
+      name="mensaje"
+      rows="5"
+      required
+      class="focus:border-primary focus:ring-primary/20 resize-vertical w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] text-gray-900 placeholder-gray-500 transition-colors duration-200 focus:ring-2"
+      placeholder="Cuéntanos más sobre tus necesidades..."></textarea>
+  </div>
+
+  <!-- Checkbox de términos -->
+  <div class="flex items-start gap-3">
+    <input
+      type="checkbox"
+      id="terminos"
+      name="terminos"
+      required
+      class="text-primary focus:ring-primary mt-1 h-4 w-4 rounded border-gray-300"
+    />
+    <label for="terminos" class="font-[Inter] text-sm text-gray-600">
+      Acepto la política de privacidad y autorizo el tratamiento de mis datos según la Ley 1581 de
+      2012. *
+    </label>
+  </div>
+
+  <!-- Botón de envío -->
+  <div>
+    <button
+      type="submit"
+      class="group bg-primary hover:bg-primary-hover relative w-full transform overflow-hidden rounded-2xl px-8 py-4 font-[Poppins] text-lg font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95"
+    >
+      <span class="relative z-10">Enviar Mensaje</span>
+      <div
+        class="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+      >
+      </div>
+    </button>
+    <div
+      class="bg-primary absolute inset-0 -z-10 rounded-2xl opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-30"
+    >
+    </div>
+  </div>
+
+  <!-- Mensaje de confirmación (oculto inicialmente) -->
+  <div id="form-message" class="hidden rounded-lg p-4 font-[Inter] text-sm">
+    <span id="message-text"></span>
+  </div>
+</form>
+
+<script define:vars={{}}>
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const messageDiv = document.getElementById('form-message');
+    const messageText = document.getElementById('message-text');
+
+    // Simulación de envío del formulario
+    // En producción, aquí iría la lógica real de envío a un backend
+
+    // Mostrar mensaje de éxito
+    if (messageDiv && messageText) {
+      messageDiv.classList.remove('hidden', 'bg-red-50', 'text-red-800', 'border-red-200');
+      messageDiv.classList.add('bg-green-50', 'text-green-800', 'border-green-200', 'border');
+      messageText.textContent =
+        '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo muy pronto.';
+
+      // Resetear el formulario
+      form.reset();
+
+      // Ocultar el mensaje después de 5 segundos
+      setTimeout(() => {
+        if (messageDiv) {
+          messageDiv.classList.add('hidden');
+        }
+      }, 5000);
+    }
+  }
+</script>
+
+<style>
+  /* Estilos adicionales para el formulario */
+  form {
+    max-width: none;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
+
+  /* Animación sutil al hacer focus */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(7, 123, 76, 0.1);
+  }
+
+  /* Estilo para el checkbox personalizado */
+  input[type='checkbox']:checked {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+</style>

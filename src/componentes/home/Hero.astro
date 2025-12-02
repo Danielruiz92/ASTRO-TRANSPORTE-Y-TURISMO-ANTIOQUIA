@@ -1,0 +1,63 @@
+---
+import Boton from '../ui/boton.astro';
+---
+
+<!-- Sección Hero con imagen de fondo y gradiente oscuro -->
+<section class="relative h-screen">
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format&fit=crop"
+      alt="Transporte corporativo y turístico"
+      class="h-full w-full object-cover"
+    />
+    <!-- Gradiente oscuro superpuesto -->
+    <div class="absolute inset-0 bg-black/50"></div>
+  </div>
+
+  <!-- Contenido centrado verticalmente, alineado a la izquierda -->
+  <div class="relative z-10 flex h-full items-center">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl">
+        <!-- Título principal -->
+        <h1 class="mb-6 font-[Poppins] text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+          Transporte Especializado Corporativo y Turístico en Colombia
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="mb-8 font-[Poppins] text-lg text-gray-200 md:text-xl">
+          Seguridad, Puntualidad y Confort para tu empresa y familia. Flota moderna monitoreada
+          24/7.
+        </p>
+
+        <!-- Botones de llamada a la acción -->
+        <div class="flex flex-col gap-4 sm:flex-row">
+          <!-- Botón principal: Cotizar Servicio -->
+          <div class="flex items-center">
+            <Boton
+              texto="Cotizar Servicio"
+              variante="primario"
+              clasePersonalizada="flex items-center justify-center gap-2"
+            />
+          </div>
+
+          <!-- Botón secundario: Conocer Flota -->
+          <div class="flex items-center">
+            <Boton
+              texto="Conocer Flota"
+              variante="neutro"
+              clasePersonalizada="border-2 border-white bg-transparent hover:bg-white hover:text-dark"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Aseguramos que la sección ocupe toda la altura de la pantalla */
+  section {
+    min-height: 100vh;
+  }
+</style>

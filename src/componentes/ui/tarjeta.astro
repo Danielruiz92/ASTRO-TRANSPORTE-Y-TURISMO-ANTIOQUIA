@@ -15,15 +15,15 @@ const {
   colorTema = 'primario',
 } = Astro.props;
 
-// Configuración de colores según el tema
+// Configuración de colores según el tema usando variables del tema
 const colores = {
   primario: {
-    boton: 'bg-[#077b4c] hover:bg-[#066840]',
-    precio: 'text-[#077b4c]',
+    boton: 'bg-primary hover:bg-primary-hover',
+    precio: 'text-primary',
   },
   secundario: {
-    boton: 'bg-[#148ae4] hover:bg-[#0f72c4]',
-    precio: 'text-[#148ae4]',
+    boton: 'bg-secondary hover:bg-secondary-hover',
+    precio: 'text-secondary',
   },
   neutro: {
     boton: 'bg-gray-700 hover:bg-gray-800',

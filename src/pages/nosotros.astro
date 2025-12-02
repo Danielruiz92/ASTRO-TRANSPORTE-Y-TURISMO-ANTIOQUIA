@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../componentes/ui/PageHeader.astro';
+import MissionVision from '../componentes/about/MissionVision.astro';
+import ValuesSection from '../componentes/about/ValuesSection.astro';
+import Certifications from '../componentes/about/Certifications.astro';
+import ContactCTA from '../componentes/home/ContactCTA.astro';
+---
+
+<Layout>
+  <!-- Encabezado de la página -->
+  <PageHeader
+    titulo="Quiénes Somos"
+    subtitulo="Tu aliado en transporte especializado"
+    imagenFondo="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format&fit=crop"
+  />
+
+  <!-- Introducción breve -->
+  <section class="bg-gray-50 py-12">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-4xl text-center">
+        <p class="font-[Inter] text-lg leading-relaxed text-gray-600 md:text-xl">
+          En <strong class="text-primary">Transporte y Turismo</strong>, somos una empresa
+          colombiana comprometida con la excelencia en servicios de transporte especializado. Con
+          años de experiencia en el sector, hemos consolidado nuestra reputación como el aliado
+          estratégico ideal para empresas y familias que buscan seguridad, confort y puntualidad en
+          cada viaje.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Misión y Visión -->
+  <MissionVision />
+
+  <!-- Valores Corporativos -->
+  <ValuesSection />
+
+  <!-- Certificaciones y Legalidad -->
+  <Certifications />
+
+  <!-- Llamada a la acción final -->
+  <ContactCTA />
+</Layout>
+
+<style></style>

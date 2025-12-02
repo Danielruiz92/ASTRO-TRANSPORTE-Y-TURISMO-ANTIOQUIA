@@ -1,0 +1,125 @@
+---
+import Boton from './boton.astro';
+
+// Estado para controlar el menú móvil
+// let menuOpen = false; // Comentado ya que no se está utilizando actualmente
+---
+
+<!-- Navbar sticky -->
+<nav class="sticky top-0 z-50 bg-white shadow-md">
+  <div class="container mx-auto px-4">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo (izquierda) -->
+      <div class="shrink-0">
+        <h1 class="text-primary font-[Poppins] text-2xl font-bold">Transporte y Turismo</h1>
+      </div>
+
+      <!-- Menú Desktop (centrado) -->
+      <div class="hidden items-center space-x-8 md:flex">
+        <a
+          href="/"
+          class="text-dark hover:text-primary font-[Poppins] font-medium transition-colors duration-200"
+        >
+          Inicio
+        </a>
+        <a
+          href="/nosotros"
+          class="text-dark hover:text-primary font-[Poppins] font-medium transition-colors duration-200"
+        >
+          Nosotros
+        </a>
+        <a
+          href="/servicios"
+          class="text-dark hover:text-primary font-[Poppins] font-medium transition-colors duration-200"
+        >
+          Servicios
+        </a>
+        <a
+          href="/flota"
+          class="text-dark hover:text-primary font-[Poppins] font-medium transition-colors duration-200"
+        >
+          Flota
+        </a>
+        <a
+          href="/contacto"
+          class="text-dark hover:text-primary font-[Poppins] font-medium transition-colors duration-200"
+        >
+          Contacto
+        </a>
+      </div>
+
+      <!-- Botón de acción (derecha) -->
+      <div class="hidden md:block">
+        <Boton texto="Cotizar Ahora" variante="primario" />
+      </div>
+
+      <!-- Botón menú hamburguesa (móvil) -->
+      <div class="md:hidden">
+        <button
+          type="button"
+          class="text-dark hover:text-primary focus:text-primary transition-colors duration-200 focus:outline-none"
+          aria-label="Toggle menu"
+          onclick="toggleMobileMenu()"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <div class="space-y-1 border-t bg-white px-2 pt-2 pb-3">
+        <a
+          href="/"
+          class="text-dark hover:text-primary hover:bg-light block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200"
+        >
+          Inicio
+        </a>
+        <a
+          href="/nosotros"
+          class="text-dark hover:text-primary hover:bg-light block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200"
+        >
+          Nosotros
+        </a>
+        <a
+          href="/servicios"
+          class="text-dark hover:text-primary hover:bg-light block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200"
+        >
+          Servicios
+        </a>
+        <a
+          href="/flota"
+          class="text-dark hover:text-primary hover:bg-light block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200"
+        >
+          Flota
+        </a>
+        <a
+          href="/contacto"
+          class="text-dark hover:text-primary hover:bg-light block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200"
+        >
+          Contacto
+        </a>
+        <div class="px-3 py-2">
+          <Boton texto="Cotizar Ahora" variante="primario" />
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Función para toggle del menú móvil (usada en el onclick del botón hamburguesa)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    if (menu) {
+      menu.classList.toggle('hidden');
+    }
+  }
+</script>

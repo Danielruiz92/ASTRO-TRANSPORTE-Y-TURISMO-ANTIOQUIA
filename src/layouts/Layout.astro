@@ -1,9 +1,12 @@
 ---
 import '../styles/global.css';
+import TopBar from '../componentes/ui/TopBar.astro';
+import Navbar from '../componentes/ui/Navbar.astro';
+import Footer from '../componentes/ui/Footer.astro';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -17,8 +20,15 @@ import '../styles/global.css';
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 font-[Poppins]">
-    <slot />
+  <body
+    class="flex min-h-screen flex-col bg-gradient-to-br from-gray-50 to-gray-100 font-[Poppins]"
+  >
+    <TopBar />
+    <Navbar />
+    <main class="grow">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
 

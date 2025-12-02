@@ -1,0 +1,102 @@
+---
+interface Props {
+  titulo: string;
+  descripcion: string;
+  caracteristicas: string[];
+  imagen: string;
+  imagenPosicion?: 'izquierda' | 'derecha';
+  mostrarCTA?: boolean;
+}
+
+const {
+  titulo,
+  descripcion,
+  caracteristicas,
+  imagen,
+  imagenPosicion = 'izquierda',
+  mostrarCTA = true,
+} = Astro.props;
+
+import Boton from './boton.astro';
+---
+
+<!-- Sección de servicio con layout zig-zag -->
+<section class="py-16 md:py-20">
+  <div class="container mx-auto px-4">
+    <div
+      class={`grid items-center gap-12 lg:grid-cols-2 ${
+        imagenPosicion === 'derecha' ? 'lg:grid-flow-col-dense' : ''
+      }`}
+    >
+      <!-- Imagen -->
+      <div class={imagenPosicion === 'derecha' ? 'lg:col-start-2' : ''}>
+        <div class="relative overflow-hidden rounded-2xl shadow-xl">
+          <img
+            src={imagen}
+            alt={titulo}
+            class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+          <div
+            class="from-primary/20 absolute inset-0 bg-gradient-to-t to-transparent opacity-0 transition-opacity duration-500 hover:opacity-100"
+          >
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenido -->
+      <div class={imagenPosicion === 'derecha' ? 'lg:col-start-1' : ''}>
+        <div class="space-y-6">
+          <!-- Título -->
+          <h2 class="text-dark font-[Poppins] text-3xl font-bold md:text-4xl">
+            {titulo}
+          </h2>
+
+          <!-- Descripción -->
+          <p class="font-[Inter] text-lg leading-relaxed text-gray-600">
+            {descripcion}
+          </p>
+
+          <!-- Características -->
+          <ul class="space-y-3">
+            {
+              caracteristicas.map((caracteristica) => (
+                <li class="flex items-start gap-3">
+                  <div class="mt-1 shrink-0">
+                    <svg class="text-primary h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <span class="font-[Inter] text-gray-700">{caracteristica}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <!-- CTA -->
+          {
+            mostrarCTA && (
+              <div class="pt-4">
+                <Boton
+                  texto="Cotizar este servicio"
+                  variante="primario"
+                  clasePersonalizada="inline-block"
+                />
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Aseguramos que las imágenes mantengan su proporción */
+  img {
+    aspect-ratio: 16/9;
+  }
+</style>

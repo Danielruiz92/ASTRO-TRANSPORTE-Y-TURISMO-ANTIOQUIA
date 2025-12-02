@@ -1,0 +1,49 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import Tarjeta from '../ui/tarjeta.astro';
+---
+
+<section class="bg-white py-16">
+  <div class="container mx-auto px-4">
+    <SectionTitle
+      titulo="Soluciones de Transporte Integral"
+      subtitulo="Cubrimos todas tus necesidades de movilidad con nuestra flota moderna y personal capacitado"
+    />
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <!-- Servicio de Turismo -->
+      <Tarjeta
+        titulo="Turismo"
+        imagen="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        descripcion="Viaja por toda Colombia con confort y seguridad en nuestros vehículos turísticos."
+        colorTema="primario"
+      />
+
+      <!-- Servicio Empresarial -->
+      <Tarjeta
+        titulo="Empresarial"
+        imagen="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        descripcion="Transporte ejecutivo para tus funcionarios y eventos corporativos."
+        colorTema="primario"
+      />
+
+      <!-- Servicio Escolar -->
+      <Tarjeta
+        titulo="Escolar"
+        imagen="https://images.unsplash.com/photo-1590647451007-2bf10ba26559?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        descripcion="Rutas seguras para instituciones educativas con conductores especializados."
+        colorTema="primario"
+      />
+
+      <!-- Servicio de Salud -->
+      <Tarjeta
+        titulo="Salud"
+        imagen="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        descripcion="Transporte asistencial no medicalizado para pacientes y acompañantes."
+        colorTema="primario"
+      />
+    </div>
+  </div>
+</section>
+
+<style></style>

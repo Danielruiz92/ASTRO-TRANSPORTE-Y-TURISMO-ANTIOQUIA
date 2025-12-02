@@ -1,0 +1,209 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../componentes/ui/PageHeader.astro';
+import Tarjeta from '../componentes/ui/tarjeta.astro';
+import Boton from '../componentes/ui/boton.astro';
+---
+
+<Layout title="Nuestra Flota - Transporte y Turismo Antioquia">
+  <!-- Header de la página -->
+  <PageHeader
+    titulo="Nuestra Flota"
+    subtitulo="Vehículos modernos y seguros"
+    imagenFondo="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  />
+
+  <!-- Contenido principal -->
+  <main class="bg-light py-16">
+    <div class="container mx-auto px-4">
+      <!-- Introducción -->
+      <div class="mb-16 text-center">
+        <h2 class="text-dark mb-4 font-[Poppins] text-3xl font-bold md:text-4xl">
+          Vehículos para cada necesidad
+        </h2>
+        <p class="mx-auto max-w-3xl font-[Inter] text-lg text-gray-600">
+          Contamos con una flota moderna y diversificada, mantenida con los más altos estándares de
+          seguridad y confort para garantizar la mejor experiencia en cada viaje.
+        </p>
+      </div>
+
+      <!-- Grid de vehículos -->
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Automóviles -->
+        <Tarjeta
+          titulo="Automóviles"
+          descripcion="Vehículos de lujo y confort ideales para traslados ejecutivos, viajes de negocios o servicios especiales. Perfectos para 1-4 pasajeros."
+          imagen="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          colorTema="primario"
+        />
+
+        <!-- Camionetas 4x4 -->
+        <Tarjeta
+          titulo="Camionetas 4x4"
+          descripcion="Vehículos con tracción en las cuatro ruedas, perfectos para terrenos difíciles y rutas turísticas en zonas montañosas."
+          imagen="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          colorTema="secundario"
+        />
+
+        <!-- Vans -->
+        <Tarjeta
+          titulo="Vans"
+          descripcion="Espaciosas y confortables, ideales para grupos familiares o turismo pequeño. Capacidad para 7-10 pasajeros con equipaje."
+          imagen="https://images.unsplash.com/photo-1570125909517-53cb19738374?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          colorTema="primario"
+        />
+
+        <!-- Minivans/Busetas -->
+        <Tarjeta
+          titulo="Minivans/Busetas"
+          descripcion="Perfectas para grupos medianos, empresas o tours grupales. Capacidad para 19-25 pasajeros con aire acondicionado y confort."
+          imagen="https://images.unsplash.com/photo-1579621034733-634ff858cc2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          colorTema="secundario"
+        />
+
+        <!-- Buses -->
+        <Tarjeta
+          titulo="Buses"
+          descripcion="Buses modernos y equipados para grandes grupos y excursiones. Capacidad para 40+ pasajeros con todas las comodidades."
+          imagen="https://images.unsplash.com/photo-1544620347-c4fd4a3d5955?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          colorTema="primario"
+        />
+
+        <!-- Vehículos Especiales -->
+        <Tarjeta
+          titulo="Vehículos Especiales"
+          descripcion="Unidades adaptadas para transporte de personas con movilidad reducida y servicios especiales del sector salud."
+          imagen="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          colorTema="secundario"
+        />
+      </div>
+
+      <!-- Características de la flota -->
+      <section class="mt-20">
+        <div class="rounded-2xl bg-white p-8 shadow-lg md:p-12">
+          <h3 class="text-dark mb-8 text-center font-[Poppins] text-2xl font-bold">
+            Características de nuestra flota
+          </h3>
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div class="text-center">
+              <div class="mb-4 flex justify-center">
+                <div class="bg-primary/10 rounded-full p-4">
+                  <svg
+                    class="text-primary h-8 w-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+              </div>
+              <h4 class="text-dark mb-2 font-[Poppins] font-semibold">Mantenimiento Preventivo</h4>
+              <p class="font-[Inter] text-sm text-gray-600">
+                Servicio regular y revisiones periódicas
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div class="mb-4 flex justify-center">
+                <div class="bg-primary/10 rounded-full p-4">
+                  <svg
+                    class="text-primary h-8 w-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+              </div>
+              <h4 class="text-dark mb-2 font-[Poppins] font-semibold">Puntualidad Garantizada</h4>
+              <p class="font-[Inter] text-sm text-gray-600">Siempre a tiempo en cada destino</p>
+            </div>
+
+            <div class="text-center">
+              <div class="mb-4 flex justify-center">
+                <div class="bg-primary/10 rounded-full p-4">
+                  <svg
+                    class="text-primary h-8 w-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <h4 class="text-dark mb-2 font-[Poppins] font-semibold">Seguridad Total</h4>
+              <p class="font-[Inter] text-sm text-gray-600">
+                Seguros completos y conductores certificados
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div class="mb-4 flex justify-center">
+                <div class="bg-primary/10 rounded-full p-4">
+                  <svg
+                    class="text-primary h-8 w-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <h4 class="text-dark mb-2 font-[Poppins] font-semibold">Confort Máximo</h4>
+              <p class="font-[Inter] text-sm text-gray-600">
+                Aire acondicionado y asientos cómodos
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Final -->
+      <section class="mt-16 text-center">
+        <div class="space-y-6">
+          <h3 class="text-dark font-[Poppins] text-2xl font-bold">
+            ¿Necesitas asesoría para elegir el vehículo adecuado?
+          </h3>
+          <p class="mx-auto max-w-2xl font-[Inter] text-lg text-gray-600">
+            Nuestro equipo de expertos te ayudará a seleccionar el vehículo perfecto según tus
+            necesidades y el número de pasajeros.
+          </p>
+          <div class="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <Boton texto="Cotizar Servicio" variante="primario" clasePersonalizada="inline-block" />
+            <Boton
+              texto="Contactar Asesor"
+              variante="secundario"
+              clasePersonalizada="inline-block"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* Estilos adicionales si son necesarios */
+</style>
