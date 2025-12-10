@@ -1,6 +1,9 @@
 ---
 import Boton from './boton.astro';
 
+// Obtener la ruta actual para la navegación activa
+const currentPath = Astro.url.pathname;
+
 // Estado para controlar el menú móvil
 // let menuOpen = false; // Comentado ya que no se está utilizando actualmente
 ---
@@ -11,38 +14,47 @@ import Boton from './boton.astro';
     <div class="flex h-16 items-center justify-between">
       <!-- Logo (izquierda) -->
       <div class="shrink-0">
-        <h1 class="text-primary font-[Poppins] text-2xl font-bold">Transporte y Turismo</h1>
+        <a href="/" class="logo-container group flex items-center space-x-3">
+          <img
+            src="/Imagenes/Logo.webp"
+            alt="Transporte y Turismo Antioquia"
+            class="logo-img logo-shadow h-10 w-auto object-contain"
+          />
+          <div class="hidden lg:block">
+            <h1 class="text-primary font-[Poppins] text-xl font-bold">Transporte y Turismo</h1>
+          </div>
+        </a>
       </div>
 
       <!-- Menú Desktop (centrado) -->
       <div class="hidden items-center space-x-8 md:flex">
         <a
           href="/"
-          class="text-dark hover:text-primary font-[Poppins] font-medium transition-colors duration-200"
+          class={`${currentPath === '/' ? 'text-primary font-bold border-b-2 border-primary' : 'text-dark hover:text-primary'} font-[Poppins] font-medium transition-colors duration-200`}
         >
           Inicio
         </a>
         <a
           href="/nosotros"
-          class="text-dark hover:text-primary font-[Poppins] font-medium transition-colors duration-200"
+          class={`${currentPath === '/nosotros' ? 'text-primary font-bold border-b-2 border-primary' : 'text-dark hover:text-primary'} font-[Poppins] font-medium transition-colors duration-200`}
         >
           Nosotros
         </a>
         <a
           href="/servicios"
-          class="text-dark hover:text-primary font-[Poppins] font-medium transition-colors duration-200"
+          class={`${currentPath === '/servicios' ? 'text-primary font-bold border-b-2 border-primary' : 'text-dark hover:text-primary'} font-[Poppins] font-medium transition-colors duration-200`}
         >
           Servicios
         </a>
         <a
           href="/flota"
-          class="text-dark hover:text-primary font-[Poppins] font-medium transition-colors duration-200"
+          class={`${currentPath === '/flota' ? 'text-primary font-bold border-b-2 border-primary' : 'text-dark hover:text-primary'} font-[Poppins] font-medium transition-colors duration-200`}
         >
           Flota
         </a>
         <a
           href="/contacto"
-          class="text-dark hover:text-primary font-[Poppins] font-medium transition-colors duration-200"
+          class={`${currentPath === '/contacto' ? 'text-primary font-bold border-b-2 border-primary' : 'text-dark hover:text-primary'} font-[Poppins] font-medium transition-colors duration-200`}
         >
           Contacto
         </a>
@@ -77,31 +89,31 @@ import Boton from './boton.astro';
       <div class="space-y-1 border-t bg-white px-2 pt-2 pb-3">
         <a
           href="/"
-          class="text-dark hover:text-primary hover:bg-light block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200"
+          class={`${currentPath === '/' ? 'text-primary font-bold bg-light' : 'text-dark hover:text-primary hover:bg-light'} block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200`}
         >
           Inicio
         </a>
         <a
           href="/nosotros"
-          class="text-dark hover:text-primary hover:bg-light block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200"
+          class={`${currentPath === '/nosotros' ? 'text-primary font-bold bg-light' : 'text-dark hover:text-primary hover:bg-light'} block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200`}
         >
           Nosotros
         </a>
         <a
           href="/servicios"
-          class="text-dark hover:text-primary hover:bg-light block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200"
+          class={`${currentPath === '/servicios' ? 'text-primary font-bold bg-light' : 'text-dark hover:text-primary hover:bg-light'} block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200`}
         >
           Servicios
         </a>
         <a
           href="/flota"
-          class="text-dark hover:text-primary hover:bg-light block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200"
+          class={`${currentPath === '/flota' ? 'text-primary font-bold bg-light' : 'text-dark hover:text-primary hover:bg-light'} block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200`}
         >
           Flota
         </a>
         <a
           href="/contacto"
-          class="text-dark hover:text-primary hover:bg-light block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200"
+          class={`${currentPath === '/contacto' ? 'text-primary font-bold bg-light' : 'text-dark hover:text-primary hover:bg-light'} block rounded-md px-3 py-2 font-[Poppins] font-medium transition-colors duration-200`}
         >
           Contacto
         </a>

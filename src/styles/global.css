@@ -38,4 +38,28 @@
 
 @layer components {
   /* Utilidades personalizadas si son necesarias */
+
+  /* Estilos para el logo */
+  .logo-img {
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  .logo-img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  /* Efectos de sombra sutil para el logo */
+  .logo-shadow {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+
+  /* Contenedor del logo con alineación perfecta */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
 }

@@ -17,10 +17,10 @@ const { titulo, subtitulo, imagenFondo } = Astro.props;
     <div class="absolute inset-0 bg-black/60"></div>
   </div>
 
-  <!-- Contenido centrado verticalmente -->
-  <div class="relative z-10 flex min-h-[40vh] items-center">
+  <!-- Contenido centrado vertical y horizontalmente -->
+  <div class="relative z-10 flex min-h-[40vh] items-center justify-center">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl text-center">
+      <div class="mx-auto max-w-4xl text-center">
         <!-- Título principal -->
         <h1 class="mb-4 font-[Poppins] text-3xl font-bold text-white md:text-4xl lg:text-5xl">
           {titulo}

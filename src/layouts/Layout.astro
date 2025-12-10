@@ -3,6 +3,16 @@ import '../styles/global.css';
 import TopBar from '../componentes/ui/TopBar.astro';
 import Navbar from '../componentes/ui/Navbar.astro';
 import Footer from '../componentes/ui/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Transporte especializado corporativo y turístico en Antioquia. Servicios de transporte escolar, empresarial, salud y turismo con vehículos modernos y conductores profesionales.',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -12,7 +22,21 @@ import Footer from '../componentes/ui/Footer.astro';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Transporte y Turismo</title>
+    <title>{title} | Transporte y Turismo Antioquia</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | Transporte y Turismo Antioquia`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/Imagenes/social-share.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={`${title} | Transporte y Turismo Antioquia`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/Imagenes/social-share.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
