@@ -7,8 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
-    preview: {
-      allowedHosts: ['transporte.rv24.ovh', 'localhost'],
-    },
+  },
+  server: {
+    allowedHosts: ['transporte.rv24.ovh', 'localhost'],
   },
 });
