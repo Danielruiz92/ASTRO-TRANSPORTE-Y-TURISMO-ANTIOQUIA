@@ -8,7 +8,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     preview: {
-      allowedHosts: ['transporte.rv24.ovh'],
+      allowedHosts: true,
     },
   },
 });
