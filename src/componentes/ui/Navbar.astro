@@ -127,11 +127,15 @@ const currentPath = Astro.url.pathname;
 
 <script>
   // Función para toggle del menú móvil (usada en el onclick del botón hamburguesa)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     if (menu) {
       menu.classList.toggle('hidden');
     }
   }
+
+  // Exponer la función al ámbito global para que sea accesible desde onclick
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (window as any).toggleMobileMenu = toggleMobileMenu;
 </script>
