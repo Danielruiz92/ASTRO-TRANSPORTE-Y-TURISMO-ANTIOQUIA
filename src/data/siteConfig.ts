@@ -11,7 +11,6 @@ export const siteConfig = {
   social: {
     facebook: "https://facebook.com/transporteturismoantioquia",
     instagram: "https://instagram.com/transporteturismoantioquia",
-    twitter: "https://twitter.com/transporteturismoantioqui",
     whatsapp: "+573001234567",
   },
   
