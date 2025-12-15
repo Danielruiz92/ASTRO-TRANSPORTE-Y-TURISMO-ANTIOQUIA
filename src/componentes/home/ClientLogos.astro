@@ -1,59 +1,86 @@
 ---
-// ClientLogos - Sección para mostrar empresas que confían en nosotros
+// ClientLogos - Sección para mostrar empresas que confían en nosotros con carrusel continuo
+const logos = [
+  { src: '/Imagenes/logos-clientes/ball_14717960.png', alt: 'Cliente 1' },
+  { src: '/Imagenes/logos-clientes/google-apps-script_5968494.png', alt: 'Cliente 2' },
+  { src: '/Imagenes/logos-clientes/pharmacy-signal_75100.png', alt: 'Cliente 3' },
+  { src: '/Imagenes/logos-clientes/planes_4525814.png', alt: 'Cliente 4' },
+  { src: '/Imagenes/logos-clientes/stumbleupon_1532523.png', alt: 'Cliente 5' },
+  { src: '/Imagenes/logos-clientes/tinder_2504829.png', alt: 'Cliente 6' },
+  { src: '/Imagenes/logos-clientes/vior_16147279.png', alt: 'Cliente 7' },
+  { src: '/Imagenes/logos-clientes/yoga-roll_2310544.png', alt: 'Cliente 8' },
+  { src: '/Imagenes/logos-clientes/ball_14717960.png', alt: 'Cliente 9' },
+  { src: '/Imagenes/logos-clientes/google-apps-script_5968494.png', alt: 'Cliente 10' },
+];
 ---
 
-<section class="bg-light py-12">
+<section class="bg-light py-16">
   <div class="container mx-auto px-4">
     <!-- Título pequeño -->
-    <h3 class="mb-8 text-center text-sm font-semibold tracking-wide text-gray-500 uppercase">
+    <h3 class="mb-12 text-center text-sm font-semibold tracking-wide text-gray-500 uppercase">
       Empresas que confían en nosotros
     </h3>
 
-    <!-- Grid de logos de clientes -->
-    <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
-      <!-- Empresa A -->
-      <div class="flex items-center justify-center">
-        <div class="flex h-20 w-full items-center justify-center rounded-lg bg-gray-200 p-4">
-          <span class="text-sm font-medium text-gray-500">Empresa A</span>
+    <!-- Carrusel continuo -->
+    <div class="relative overflow-hidden rounded-2xl">
+      <!-- Contenedor del carrusel con efecto de máscara -->
+      <div class="carousel-container relative h-24">
+        <div class="carousel-track flex gap-8 animate-scroll">
+          {logos.map((logo, index) => (
+            <div key={index} class="carousel-item flex min-w-[200px] shrink-0 items-center justify-center">
+              <div class="flex h-20 w-40 items-center justify-center rounded-xl bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            </div>
+          ))}
+          {/* Duplicar los logos para efecto continuo */}
+          {logos.map((logo, index) => (
+            <div key={`duplicate-${index}`} class="carousel-item flex min-w-[200px] shrink-0 items-center justify-center">
+              <div class="flex h-20 w-40 items-center justify-center rounded-xl bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <!-- Colegio B -->
-      <div class="flex items-center justify-center">
-        <div class="flex h-20 w-full items-center justify-center rounded-lg bg-gray-200 p-4">
-          <span class="text-sm font-medium text-gray-500">Colegio B</span>
-        </div>
-      </div>
-
-      <!-- Clínica C -->
-      <div class="flex items-center justify-center">
-        <div class="flex h-20 w-full items-center justify-center rounded-lg bg-gray-200 p-4">
-          <span class="text-sm font-medium text-gray-500">Clínica C</span>
-        </div>
-      </div>
-
-      <!-- Corporación D -->
-      <div class="flex items-center justify-center">
-        <div class="flex h-20 w-full items-center justify-center rounded-lg bg-gray-200 p-4">
-          <span class="text-sm font-medium text-gray-500">Corporación D</span>
-        </div>
-      </div>
-
-      <!-- Universidad E -->
-      <div class="flex items-center justify-center">
-        <div class="flex h-20 w-full items-center justify-center rounded-lg bg-gray-200 p-4">
-          <span class="text-sm font-medium text-gray-500">Universidad E</span>
-        </div>
-      </div>
-
-      <!-- Industria F -->
-      <div class="flex items-center justify-center">
-        <div class="flex h-20 w-full items-center justify-center rounded-lg bg-gray-200 p-4">
-          <span class="text-sm font-medium text-gray-500">Industria F</span>
-        </div>
-      </div>
+      <!-- Gradientes de desvanecimiento en los lados -->
+      <div class="pointer-events-none absolute inset-y-0 left-0 w-20 bg-linear-to-r from-light to-transparent"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 w-20 bg-linear-to-l from-light to-transparent"></div>
     </div>
   </div>
 </section>
 
-<style></style>
+<style>
+  .carousel-container {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .carousel-track {
+    animation: scroll 30s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pausa en hover */
+  .carousel-container:hover .carousel-track {
+    animation-play-state: paused;
+  }
+</style>
