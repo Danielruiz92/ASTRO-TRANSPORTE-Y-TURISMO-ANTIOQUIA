@@ -1,0 +1,246 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../componentes/ui/PageHeader.astro';
+import Boton from '../componentes/ui/boton.astro';
+---
+
+<Layout
+  title="Servicio de Turismo"
+  description="Descubre Colombia con nuestro servicio de transporte turístico. Paquetes completos con conductores bilingües y vehículos confortables."
+>
+  <!-- Header de la página -->
+  <PageHeader
+    titulo="Transporte Turístico"
+    subtitulo="Viaja por toda Colombia con confort y seguridad"
+    imagenFondo="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+  />
+
+  <!-- Contenido principal -->
+  <main class="bg-light">
+    <!-- Introducción -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-dark mb-6 font-[Poppins] text-3xl font-bold md:text-4xl">
+            Tu Aventura Comienza Aquí
+          </h2>
+          <p class="mb-6 font-[Inter] text-lg leading-relaxed text-gray-700">
+            Descubre Colombia con nosotros. Ofrecemos servicios de transporte turístico a nivel
+            nacional con conductores expertos que conocen las mejores rutas y destinos. Trabajamos
+            con los mejores aliados para ofrecer paquetes completos que incluyen transporte,
+            alojamiento y tours guiados.
+          </p>
+          <p class="font-[Inter] text-lg leading-relaxed text-gray-700">
+            Desde las playas del Caribe hasta las montañas de los Andes, te llevamos a explorar los
+            rincones más hermosos de Colombia con la mayor comodidad y seguridad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Características del Servicio -->
+    <section class="bg-gray-50 py-16">
+      <div class="container mx-auto px-4">
+        <h3 class="text-dark mb-12 text-center font-[Poppins] text-3xl font-bold">
+          ¿Qué Incluye Nuestro Servicio?
+        </h3>
+        <div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+          <!-- Característica 1 -->
+          <div class="flex gap-4">
+            <div class="shrink-0">
+              <div class="bg-primary/10 rounded-full p-3">
+                <svg class="text-primary h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-dark mb-2 font-[Poppins] font-semibold">Tours Nacionales Completos</h4>
+              <p class="font-[Inter] text-gray-600">
+                Paquetes a los principales destinos turísticos de Colombia: Cartagena, Santa Marta,
+                Eje Cafetero, Villa de Leyva, San Andrés y más.
+              </p>
+            </div>
+          </div>
+
+          <!-- Característica 2 -->
+          <div class="flex gap-4">
+            <div class="shrink-0">
+              <div class="bg-primary/10 rounded-full p-3">
+                <svg class="text-primary h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-dark mb-2 font-[Poppins] font-semibold">Paquetes Todo Incluido</h4>
+              <p class="font-[Inter] text-gray-600">
+                Transporte, alojamiento, alimentación y actividades incluidas. Solo preocúpate por
+                disfrutar.
+              </p>
+            </div>
+          </div>
+
+          <!-- Característica 3 -->
+          <div class="flex gap-4">
+            <div class="shrink-0">
+              <div class="bg-primary/10 rounded-full p-3">
+                <svg class="text-primary h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-dark mb-2 font-[Poppins] font-semibold">Conductores Bilingües</h4>
+              <p class="font-[Inter] text-gray-600">
+                Personal capacitado con conocimiento de idiomas y certificación en guianza
+                turística.
+              </p>
+            </div>
+          </div>
+
+          <!-- Característica 4 -->
+          <div class="flex gap-4">
+            <div class="shrink-0">
+              <div class="bg-primary/10 rounded-full p-3">
+                <svg class="text-primary h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-dark mb-2 font-[Poppins] font-semibold">Vehículos Confortables</h4>
+              <p class="font-[Inter] text-gray-600">
+                Flota moderna con aire acondicionado, asientos reclinables y entretenimiento a
+                bordo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Característica 5 -->
+          <div class="flex gap-4">
+            <div class="shrink-0">
+              <div class="bg-primary/10 rounded-full p-3">
+                <svg class="text-primary h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-dark mb-2 font-[Poppins] font-semibold">Itinerarios Flexibles</h4>
+              <p class="font-[Inter] text-gray-600">
+                Rutas personalizables según tus preferencias y ritmo de viaje.
+              </p>
+            </div>
+          </div>
+
+          <!-- Característica 6 -->
+          <div class="flex gap-4">
+            <div class="shrink-0">
+              <div class="bg-primary/10 rounded-full p-3">
+                <svg class="text-primary h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-dark mb-2 font-[Poppins] font-semibold">Seguro de Viaje</h4>
+              <p class="font-[Inter] text-gray-600">
+                Todos nuestros paquetes incluyen seguro de viaje y asistencia médica.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinos Populares -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <h3 class="text-dark mb-12 text-center font-[Poppins] text-3xl font-bold">
+          Destinos Populares
+        </h3>
+        <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+          <!-- Destino 1 -->
+          <div class="overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl">
+            <div class="relative h-48">
+              <img
+                src="https://images.unsplash.com/photo-1568632234157-ce7aecd03d0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Cartagena"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h4 class="text-dark mb-2 font-[Poppins] text-xl font-bold">Cartagena</h4>
+              <p class="font-[Inter] text-gray-600">
+                Ciudad amurallada, playas paradisíacas y cultura caribeña.
+              </p>
+            </div>
+          </div>
+
+          <!-- Destino 2 -->
+          <div class="overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl">
+            <div class="relative h-48">
+              <img
+                src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Eje Cafetero"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h4 class="text-dark mb-2 font-[Poppins] text-xl font-bold">Eje Cafetero</h4>
+              <p class="font-[Inter] text-gray-600">
+                Paisajes verdes, haciendas cafeteras y pueblos coloridos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Destino 3 -->
+          <div class="overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl">
+            <div class="relative h-48">
+              <img
+                src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Guatapé"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h4 class="text-dark mb-2 font-[Poppins] text-xl font-bold">Guatapé</h4>
+              <p class="font-[Inter] text-gray-600">
+                El pueblo más colorido de Colombia con vistas impresionantes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="bg-primary py-16">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mx-auto max-w-3xl space-y-6">
+          <h3 class="font-[Poppins] text-3xl font-bold text-white md:text-4xl">
+            ¿Listo para tu Próxima Aventura?
+          </h3>
+          <p class="font-[Inter] text-lg text-gray-100">
+            Contáctanos y diseñaremos el viaje perfecto para ti y tu familia.
+          </p>
+          <div class="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <Boton
+              texto="Cotizar Tour"
+              variante="primario"
+              href="/cotizar"
+              clasePersonalizada="inline-block"
+            />
+            <Boton
+              texto="Ver Nuestra Flota"
+              variante="neutro"
+              href="/flota"
+              clasePersonalizada="inline-block border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

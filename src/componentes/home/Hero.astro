@@ -10,6 +10,8 @@ import Boton from '../ui/boton.astro';
       src="/Imagenes/Dummy.webp"
       alt="Transporte corporativo y turístico"
       class="h-full w-full object-cover"
+      loading="eager"
+      fetchpriority="high"
     />
     <!-- Gradiente oscuro superpuesto -->
     <div class="absolute inset-0 bg-black/50"></div>
@@ -25,6 +27,8 @@ import Boton from '../ui/boton.astro';
             src="/Imagenes/Logo.webp"
             alt="Astro Transporte y Turismo Antioquia"
             class="h-24 md:h-32 lg:h-40 xl:h-48 animate-float opacity-90 drop-shadow-2xl max-w-full"
+            loading="eager"
+            fetchpriority="high"
           />
         </div>
         
@@ -46,6 +50,7 @@ import Boton from '../ui/boton.astro';
             <Boton
               texto="Cotizar Servicio"
               variante="primario"
+              href="/cotizar"
               clasePersonalizada="flex items-center justify-center gap-2"
             />
           </div>
@@ -55,6 +60,7 @@ import Boton from '../ui/boton.astro';
             <Boton
               texto="Conocer Flota"
               variante="neutro"
+              href="/flota"
               clasePersonalizada="border-2 border-white bg-transparent hover:bg-white hover:text-dark"
             />
           </div>

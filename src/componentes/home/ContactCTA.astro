@@ -27,7 +27,7 @@ import Boton from '../ui/boton.astro';
   <div class="relative container mx-auto px-6 sm:px-8">
     <div class="mx-auto max-w-5xl text-center">
       <!-- Icono decorativo -->
-      <div class="mb-8 flex justify-center">
+      <div data-animate="fade-up" class="mb-8 flex justify-center">
         <div class="relative">
           <div class="bg-primary/20 absolute -inset-2 rounded-full blur-lg"></div>
           <div
@@ -51,7 +51,7 @@ import Boton from '../ui/boton.astro';
       </div>
 
       <!-- Título principal -->
-      <h2 class="mb-6 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+      <h2 data-animate="fade-up" data-delay="150" class="mb-6 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
         ¿Listo para <span
           class="from-primary to-secondary bg-linear-to-r bg-clip-text text-transparent"
           >iniciar tu viaje</span
@@ -60,6 +60,7 @@ import Boton from '../ui/boton.astro';
 
       <!-- Texto descriptivo -->
       <p
+        data-animate="fade-up" data-delay="300"
         class="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-gray-300 md:text-xl lg:text-2xl"
       >
         Tu transporte especializado está a un solo paso. Cotiza en menos de 5 minutos y recibe
@@ -67,12 +68,14 @@ import Boton from '../ui/boton.astro';
       </p>
 
       <!-- Botones de llamada a la acción -->
-      <div class="mb-12 flex flex-col gap-6 sm:flex-row sm:justify-center sm:gap-8">
+      <div data-animate="fade-up" data-delay="400" class="mb-12 flex flex-col gap-6 sm:flex-row sm:justify-center sm:gap-8">
         <!-- Botón Principal: Hablar por WhatsApp -->
         <div class="flex justify-center">
           <Boton
             texto="Hablar por WhatsApp"
             variante="neutro"
+            href="https://wa.me/573043368556?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios%20de%20transporte."
+            target="_blank"
             clasePersonalizada="group relative bg-linear-to-r from-primary to-primary-hover text-white hover:from-primary-hover hover:to-primary px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-primary/30"
           />
         </div>
@@ -82,13 +85,14 @@ import Boton from '../ui/boton.astro';
           <Boton
             texto="Formulario de Contacto"
             variante="neutro"
+            href="/contacto"
             clasePersonalizada="group bg-transparent text-white border-2 border-white/30 hover:border-white hover:bg-white/10 px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
           />
         </div>
       </div>
 
       <!-- Características adicionales -->
-      <div class="mb-12 grid gap-6 md:grid-cols-3">
+      <div data-animate="fade-up" data-delay="500" class="mb-12 grid gap-6 md:grid-cols-3">
         <div class="flex flex-col items-center text-center">
           <div
             class="bg-primary/10 border-primary/30 mb-4 flex h-12 w-12 items-center justify-center rounded-full border"

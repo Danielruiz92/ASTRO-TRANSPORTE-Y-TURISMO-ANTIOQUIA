@@ -1,0 +1,418 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../componentes/ui/PageHeader.astro';
+import Boton from '../componentes/ui/boton.astro';
+---
+
+<Layout
+  title="Cotizar Servicio"
+  description="Solicita una cotización personalizada para tu servicio de transporte. Obtén precios competitivos y un plan ajustado a tus necesidades."
+>
+  <!-- Header de la página -->
+  <PageHeader
+    titulo="Cotizar Servicio"
+    imagenFondo="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  />
+
+  <!-- Contenido principal -->
+  <main class="bg-light py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid gap-12 lg:grid-cols-2">
+        <!-- Columna izquierda: Formulario de cotización -->
+        <div>
+          <!-- Título -->
+          <div class="mb-8">
+            <h2 class="text-dark mb-4 font-[Poppins] text-3xl font-bold">
+              Solicita tu Cotización
+            </h2>
+            <p class="font-[Inter] text-lg text-gray-600">
+              Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas con
+              una propuesta personalizada.
+            </p>
+          </div>
+
+          <!-- Formulario -->
+          <form
+            id="quote-form"
+            class="space-y-6 rounded-2xl bg-white p-8 shadow-lg"
+          >
+            <!-- Tipo de Servicio -->
+            <div>
+              <label for="service-type" class="text-dark mb-2 block font-[Poppins] font-semibold">
+                Tipo de Servicio <span class="text-red-500">*</span>
+              </label>
+              <select
+                id="service-type"
+                name="serviceType"
+                required
+                class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
+              >
+                <option value="">Selecciona un servicio</option>
+                <option value="empresarial">Transporte Empresarial</option>
+                <option value="turistico">Turismo y Excursiones</option>
+                <option value="eventos">Eventos Especiales</option>
+                <option value="escolar">Transporte Escolar</option>
+                <option value="aeropuerto">Traslado al Aeropuerto</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <!-- Tipo de Vehículo -->
+            <div>
+              <label for="vehicle-type" class="text-dark mb-2 block font-[Poppins] font-semibold">
+                Tipo de Vehículo <span class="text-red-500">*</span>
+              </label>
+              <select
+                id="vehicle-type"
+                name="vehicleType"
+                required
+                class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
+              >
+                <option value="">Selecciona un vehículo</option>
+                <option value="automovil">Automóvil/Camioneta (1-4 pasajeros)</option>
+                <option value="van">Van/Minivan (7-19 pasajeros)</option>
+                <option value="buseta">Buseta (20-30 pasajeros)</option>
+                <option value="bus">Bus (30-40 pasajeros)</option>
+              </select>
+            </div>
+
+            <!-- Grid de 2 columnas -->
+            <div class="grid gap-4 sm:grid-cols-2">
+              <!-- Número de Pasajeros -->
+              <div>
+                <label for="passengers" class="text-dark mb-2 block font-[Poppins] font-semibold">
+                  Pasajeros <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="number"
+                  id="passengers"
+                  name="passengers"
+                  min="1"
+                  max="40"
+                  required
+                  class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
+                  placeholder="Ej: 10"
+                />
+              </div>
+
+              <!-- Fecha del Servicio -->
+              <div>
+                <label for="service-date" class="text-dark mb-2 block font-[Poppins] font-semibold">
+                  Fecha <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="date"
+                  id="service-date"
+                  name="serviceDate"
+                  required
+                  class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
+                />
+              </div>
+            </div>
+
+            <!-- Origen -->
+            <div>
+              <label for="origin" class="text-dark mb-2 block font-[Poppins] font-semibold">
+                Lugar de Origen <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="origin"
+                name="origin"
+                required
+                class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
+                placeholder="Ej: Medellín, Centro"
+              />
+            </div>
+
+            <!-- Destino -->
+            <div>
+              <label for="destination" class="text-dark mb-2 block font-[Poppins] font-semibold">
+                Lugar de Destino <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="destination"
+                name="destination"
+                required
+                class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
+                placeholder="Ej: Guatapé"
+              />
+            </div>
+
+            <!-- Nombre -->
+            <div>
+              <label for="name" class="text-dark mb-2 block font-[Poppins] font-semibold">
+                Nombre Completo <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
+                placeholder="Juan Pérez"
+              />
+            </div>
+
+            <!-- Grid de 2 columnas -->
+            <div class="grid gap-4 sm:grid-cols-2">
+              <!-- Email -->
+              <div>
+                <label for="email" class="text-dark mb-2 block font-[Poppins] font-semibold">
+                  Email <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
+                  placeholder="tu@email.com"
+                />
+              </div>
+
+              <!-- Teléfono -->
+              <div>
+                <label for="phone" class="text-dark mb-2 block font-[Poppins] font-semibold">
+                  Teléfono <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
+                  placeholder="+57 300 123 4567"
+                />
+              </div>
+            </div>
+
+            <!-- Mensaje Adicional -->
+            <div>
+              <label for="message" class="text-dark mb-2 block font-[Poppins] font-semibold">
+                Información Adicional
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
+                placeholder="Cuéntanos más detalles sobre tu viaje..."
+              ></textarea>
+            </div>
+
+            <!-- Botón de envío -->
+            <button
+              type="submit"
+              class="bg-primary hover:bg-primary-hover w-full transform rounded-2xl px-8 py-4 font-[Poppins] text-base font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95"
+            >
+              Solicitar Cotización
+            </button>
+
+            <!-- Mensaje de éxito/error -->
+            <div
+              id="form-message"
+              class="mt-4 hidden rounded-lg p-4 text-center font-[Inter]"
+            ></div>
+          </form>
+        </div>
+
+        <!-- Columna derecha: Información adicional -->
+        <div class="space-y-8">
+          <!-- Beneficios de cotizar con nosotros -->
+          <div class="rounded-2xl bg-white p-8 shadow-lg">
+            <h3 class="text-dark mb-6 font-[Poppins] text-2xl font-bold">
+              ¿Por qué cotizar con nosotros?
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <svg
+                  class="text-primary mt-1 h-6 w-6 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div>
+                  <h4 class="text-dark font-[Poppins] font-semibold">Precios Competitivos</h4>
+                  <p class="font-[Inter] text-sm text-gray-600">
+                    Las mejores tarifas del mercado sin comprometer la calidad
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg
+                  class="text-primary mt-1 h-6 w-6 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div>
+                  <h4 class="text-dark font-[Poppins] font-semibold">Respuesta Rápida</h4>
+                  <p class="font-[Inter] text-sm text-gray-600">
+                    Te respondemos en menos de 24 horas
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg
+                  class="text-primary mt-1 h-6 w-6 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div>
+                  <h4 class="text-dark font-[Poppins] font-semibold">Asesoría Personalizada</h4>
+                  <p class="font-[Inter] text-sm text-gray-600">
+                    Te ayudamos a elegir el mejor servicio para tu necesidad
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg
+                  class="text-primary mt-1 h-6 w-6 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div>
+                  <h4 class="text-dark font-[Poppins] font-semibold">Sin Compromiso</h4>
+                  <p class="font-[Inter] text-sm text-gray-600">
+                    Cotización totalmente gratuita y sin obligación de contratar
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contacto directo -->
+          <div class="bg-primary rounded-2xl p-8 text-white shadow-lg">
+            <h3 class="mb-4 font-[Poppins] text-2xl font-bold">¿Prefieres hablar directamente?</h3>
+            <p class="mb-6 font-[Inter] text-gray-100">
+              Nuestro equipo está disponible para atenderte por WhatsApp o teléfono.
+            </p>
+            <div class="space-y-4">
+              <Boton
+                texto="Chatear por WhatsApp"
+                variante="primario"
+                href="https://wa.me/573043368556?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización%20para%20un%20servicio%20de%20transporte."
+                target="_blank"
+                clasePersonalizada="w-full bg-white text-primary hover:bg-gray-100"
+              />
+              <a
+                href="tel:+573043368556"
+                class="flex items-center justify-center gap-2 rounded-2xl border-2 border-white bg-transparent px-8 py-3 font-[Poppins] font-semibold text-white transition-all duration-300 hover:bg-white hover:text-primary"
+              >
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
+                +57 304 336 8556
+              </a>
+            </div>
+          </div>
+
+          <!-- Horario de atención -->
+          <div class="rounded-2xl bg-white p-8 shadow-lg">
+            <h3 class="text-dark mb-4 font-[Poppins] text-2xl font-bold">Horario de Atención</h3>
+            <div class="space-y-3 font-[Inter]">
+              <div class="flex justify-between">
+                <span class="font-semibold text-gray-700">Lunes a Viernes:</span>
+                <span class="text-gray-600">7:00 AM - 7:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-semibold text-gray-700">Sábados:</span>
+                <span class="text-gray-600">8:00 AM - 5:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-semibold text-gray-700">Domingos:</span>
+                <span class="text-gray-600">9:00 AM - 2:00 PM</span>
+              </div>
+              <p class="text-primary mt-4 text-sm font-semibold">
+                ⚡ Servicio de emergencias 24/7 disponible
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Manejo del formulario de cotización
+  const form = document.getElementById('quote-form') as HTMLFormElement;
+  const formMessage = document.getElementById('form-message') as HTMLDivElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          subject: `Solicitud de Cotización - ${data.serviceType}`,
+        }),
+      });
+
+      if (response.ok) {
+        formMessage.textContent =
+          '✅ ¡Cotización enviada con éxito! Te contactaremos pronto.';
+        formMessage.className =
+          'mt-4 rounded-lg p-4 text-center font-[Inter] bg-green-100 text-green-700 border border-green-300';
+        formMessage.classList.remove('hidden');
+        form.reset();
+      } else {
+        throw new Error('Error en el envío');
+      }
+    } catch (error) {
+      formMessage.textContent =
+        '❌ Hubo un error al enviar la cotización. Por favor, intenta nuevamente o contáctanos por WhatsApp.';
+      formMessage.className =
+        'mt-4 rounded-lg p-4 text-center font-[Inter] bg-red-100 text-red-700 border border-red-300';
+      formMessage.classList.remove('hidden');
+    }
+  });
+
+  // Establecer fecha mínima (hoy)
+  const dateInput = document.getElementById('service-date') as HTMLInputElement;
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+  }
+</script>

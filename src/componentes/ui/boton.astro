@@ -3,9 +3,11 @@ interface Props {
   texto: string;
   variante: 'primario' | 'secundario' | 'neutro';
   clasePersonalizada?: string;
+  href?: string;
+  target?: '_blank' | '_self';
 }
 
-const { texto, variante, clasePersonalizada = '' } = Astro.props;
+const { texto, variante, clasePersonalizada = '', href, target = '_self' } = Astro.props;
 
 // Configuración de colores según la variante usando variables del tema
 const configuraciones = {
@@ -27,18 +29,36 @@ const configuraciones = {
 };
 
 const config = configuraciones[variante];
+
+// Clases compartidas entre botón y enlace
+const sharedClasses = `relative w-auto transform overflow-hidden rounded-2xl ${config.bg} ${config.hoverBg} px-8 py-2 font-[Poppins] text-base font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 ${clasePersonalizada}`;
 ---
 
 <div class="group relative">
-  <button
-    class={`relative w-auto transform overflow-hidden rounded-2xl ${config.bg} ${config.hoverBg} px-8 py-2 font-[Poppins] text-base font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 ${clasePersonalizada}`}
-  >
-    <span class="relative z-10">{texto}</span>
-    <div
-      class="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+  {href ? (
+    <a
+      href={href}
+      target={target}
+      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+      class={sharedClasses}
     >
-    </div>
-  </button>
+      <span class="relative z-10">{texto}</span>
+      <div
+        class="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+      >
+      </div>
+    </a>
+  ) : (
+    <button
+      class={sharedClasses}
+    >
+      <span class="relative z-10">{texto}</span>
+      <div
+        class="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+      >
+      </div>
+    </button>
+  )}
   <div
     class={`${config.glow} absolute inset-0 -z-10 rounded-lg opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-20`}
   >

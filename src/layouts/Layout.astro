@@ -44,6 +44,11 @@ const {
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Precargar imágenes críticas del hero y logos -->
+    <link rel="preload" href="/Imagenes/Logo.webp" as="image" type="image/webp" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   </head>
   <body
     class="flex min-h-screen flex-col bg-linear-to-br from-gray-50 to-gray-100 font-[Poppins]"
@@ -66,3 +71,46 @@ const {
     height: 100%;
   }
 </style>
+
+<script>
+  // Intersection Observer para animaciones de scroll
+  // Se ejecuta solo si el usuario no tiene preferencia por movimiento reducido
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Configuración del observador - threshold más bajo para precarga
+    const observerOptions = {
+      threshold: 0.05, // Se activa cuando el 5% del elemento es visible
+      rootMargin: '50px 0px 50px 0px', // Precarga 50px antes y después
+    };
+
+    // Callback que se ejecuta cuando cambia la visibilidad de los elementos
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Agregar clase que activa la animación
+          entry.target.classList.add('animate-in');
+        } else {
+          // Remover clase cuando el elemento sale de la vista
+          // Esto permite re-animar al volver a hacer scroll
+          entry.target.classList.remove('animate-in');
+        }
+      });
+    };
+
+    // Crear el observador
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Función para inicializar animaciones
+    const initAnimations = () => {
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      animatedElements.forEach((element) => {
+        observer.observe(element);
+      });
+    };
+
+    // Observar todos los elementos con atributo data-animate
+    document.addEventListener('DOMContentLoaded', initAnimations);
+
+    // Para navegación SPA/páginas dinámicas (si se usa en el futuro)
+    document.addEventListener('astro:page-load', initAnimations);
+  }
+</script>

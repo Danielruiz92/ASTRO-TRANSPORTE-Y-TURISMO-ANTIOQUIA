@@ -3,7 +3,7 @@ export const siteConfig = {
   description: "Empresa líder en servicios de transporte y turismo en Antioquia",
   
   contact: {
-    phone: "+57 300 123 4567",
+    phone: "+573043368556",
     email: "info@transporteturismoantioquia.com",
     address: "Medellín, Antioquia, Colombia",
   },
@@ -11,7 +11,7 @@ export const siteConfig = {
   social: {
     facebook: "https://facebook.com/transporteturismoantioquia",
     instagram: "https://instagram.com/transporteturismoantioquia",
-    whatsapp: "+573001234567",
+    whatsapp: "+573043368556",
   },
   
   portals: {

@@ -19,17 +19,17 @@ const alineacionDecoracion = {
 ---
 
 <section class={`mb-12 ${alineacionClases[alineacion]}`}>
-  <h2 class="text-dark mb-3 text-3xl font-bold md:text-4xl">
+  <h2 data-animate="fade-up" class="text-dark mb-3 text-3xl font-bold md:text-4xl">
     {titulo}
   </h2>
   {
     subtitulo && (
-      <p class={`mb-4 max-w-2xl text-lg text-gray-600 ${alineacionDecoracion[alineacion]}`}>
+      <p data-animate="fade-up" data-delay="150" class={`mb-4 max-w-2xl text-lg text-gray-600 ${alineacionDecoracion[alineacion]}`}>
         {subtitulo}
       </p>
     )
   }
-  <div class={`h-1 w-20 bg-primary rounded-full ${alineacionDecoracion[alineacion]}`}></div>
+  <div data-animate="fade-up" data-delay="300" class={`h-1 w-20 bg-primary rounded-full ${alineacionDecoracion[alineacion]}`}></div>
 </section>
 
 <style></style>

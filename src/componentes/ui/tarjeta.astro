@@ -7,6 +7,7 @@ interface Props {
   precio?: string;
   imagen?: string;
   colorTema?: 'primario' | 'secundario' | 'neutro';
+  href?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   precio,
   imagen = '/Imagenes/Dummy.webp',
   colorTema = 'primario',
+  href,
 } = Astro.props;
 
 // Configuración de colores según el tema
@@ -35,14 +37,16 @@ const color = colores[colorTema];
 
 <!-- Tarjeta con estilo de Guatapé: efecto de elevación y zoom -->
 <div
-  class="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+  class="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl"
 >
   <!-- Imagen con overlay -->
-  <div class="relative h-48 overflow-hidden">
+  <div class="relative h-48 shrink-0 overflow-hidden bg-gray-100">
     <img
       src={imagen}
       alt={titulo}
       class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+      loading="lazy"
+      decoding="async"
     />
     <div
       class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -51,15 +55,15 @@ const color = colores[colorTema];
   </div>
 
   <!-- Contenido -->
-  <div class="flex flex-grow flex-col px-6 py-4">
+  <div class="flex grow flex-col px-6 py-4">
     <h3 class="mb-2 font-[Poppins] text-xl font-bold text-gray-800">{titulo}</h3>
-    <p class="mb-2 font-[Inter] text-gray-600">{descripcion}</p>
+    <p class="mb-4 grow font-[Inter] text-gray-600 leading-relaxed">{descripcion}</p>
 
     <!-- Pie de tarjeta -->
     <div class="mt-auto flex flex-col items-start justify-start gap-3">
       {precio && <span class={`font-[Poppins] font-semibold ${color.precio}`}>{precio}</span>}
       <div class="mt-2 flex justify-start">
-        <Boton texto="Ver más" variante={colorTema} />
+        <Boton texto="Ver más" variante={colorTema} href={href} />
       </div>
     </div>
   </div>
