@@ -1,5 +1,8 @@
 ---
-// Footer - Componente de pie de página con información de la empresa
+import { siteConfig } from '../../data/siteConfig';
+import FooterLinks from './FooterLinks.astro';
+import FooterContact from './FooterContact.astro';
+import FooterSocial from './FooterSocial.astro';
 ---
 
 <!-- Footer -->
@@ -12,148 +15,58 @@
         <div class="logo-container flex items-center space-x-3">
           <img
             src="/Imagenes/Logo.webp"
-            alt="Transporte y Turismo Antioquia"
+            alt={siteConfig.name}
             class="logo-img logo-shadow h-12 w-auto object-contain"
           />
         </div>
         <h3 class="text-primary font-[Poppins] text-xl font-bold">
-          Transporte y Turismo Antioquia
+          {siteConfig.name}
         </h3>
         <p class="text-sm leading-relaxed text-gray-300">
-          Líderes en transporte y turismo en Antioquia, ofreciendo servicios de calidad con más de
-          15 años de experiencia. Tu seguridad y comodidad son nuestra prioridad.
+          {siteConfig.description}
         </p>
+        <div class="flex flex-wrap gap-2">
+          {siteConfig.certifications.map((cert) => (
+            <span class="rounded-full bg-primary/10 px-3 py-1 font-[Poppins] text-xs text-primary">
+              {cert}
+            </span>
+          ))}
+        </div>
       </div>
 
       <!-- Columna 2: Enlaces rápidos -->
-      <div class="space-y-4">
-        <h4 class="font-[Poppins] text-lg font-semibold">Enlaces Rápidos</h4>
-        <ul class="space-y-2">
-          <li>
-            <a
-              href="/"
-              class="hover:text-primary text-sm text-gray-300 transition-colors duration-200"
-            >
-              Inicio
-            </a>
-          </li>
-          <li>
-            <a
-              href="/nosotros"
-              class="hover:text-primary text-sm text-gray-300 transition-colors duration-200"
-            >
-              Nosotros
-            </a>
-          </li>
-          <li>
-            <a
-              href="/servicios"
-              class="hover:text-primary text-sm text-gray-300 transition-colors duration-200"
-            >
-              Servicios
-            </a>
-          </li>
-          <li>
-            <a
-              href="/flota"
-              class="hover:text-primary text-sm text-gray-300 transition-colors duration-200"
-            >
-              Flota
-            </a>
-          </li>
-          <li>
-            <a
-              href="/contacto"
-              class="hover:text-primary text-sm text-gray-300 transition-colors duration-200"
-            >
-              Contacto
-            </a>
-          </li>
-        </ul>
-      </div>
+      <FooterLinks links={siteConfig.navigation} />
 
-      <!-- Columna 3: Datos de contacto y redes sociales -->
-      <div class="space-y-4">
-        <h4 class="font-[Poppins] text-lg font-semibold">Contacto</h4>
-        <div class="space-y-2 text-sm">
-          <div class="flex items-start space-x-2">
-            <svg class="text-primary mt-1 h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fill-rule="evenodd"
-                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                clip-rule="evenodd"></path>
-            </svg>
-            <span class="text-gray-300"> Cra 50 #45-67, Medellín, Antioquia </span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <svg class="text-primary h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
-              ></path>
-            </svg>
-            <span class="text-gray-300"> +57 300 000 0000 </span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <svg class="text-primary h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-              ></path>
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-            </svg>
-            <span class="text-gray-300"> info@transporteyturismoantioquia.co </span>
-          </div>
-        </div>
+      <!-- Columna 3: Datos de contacto -->
+      <FooterContact contact={siteConfig.contact} />
 
-        <!-- Redes sociales -->
-        <div class="flex space-x-3 pt-2">
-          <a href="#" class="hover:text-primary text-gray-400 transition-colors duration-200">
-            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-              ></path>
-            </svg>
-          </a>
-          <a href="#" class="hover:text-primary text-gray-400 transition-colors duration-200">
-            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-              ></path>
-            </svg>
-          </a>
-          <a href="#" class="hover:text-primary text-gray-400 transition-colors duration-200">
-            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"
-              ></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Columna 4: Sellos de certificación y legal -->
-      <div class="space-y-4">
-        <h4 class="font-[Poppins] text-lg font-semibold">Certificaciones</h4>
-        <div class="grid grid-cols-2 gap-3">
-          <!-- Espacios para sellos de certificación -->
-          <div class="flex h-16 items-center justify-center rounded-lg bg-gray-700">
-            <span class="text-xs text-gray-400">Sello 1</span>
-          </div>
-          <div class="flex h-16 items-center justify-center rounded-lg bg-gray-700">
-            <span class="text-xs text-gray-400">Sello 2</span>
-          </div>
-          <div class="flex h-16 items-center justify-center rounded-lg bg-gray-700">
-            <span class="text-xs text-gray-400">Sello 3</span>
-          </div>
-          <div class="flex h-16 items-center justify-center rounded-lg bg-gray-700">
-            <span class="text-xs text-gray-400">Sello 4</span>
-          </div>
-        </div>
-      </div>
+      <!-- Columna 4: Redes sociales -->
+      <FooterSocial social={siteConfig.social} />
     </div>
 
     <!-- Línea de copyright -->
     <div class="mt-8 border-t border-gray-700 pt-6 text-center">
       <p class="text-sm text-gray-400">
-        © {new Date().getFullYear()} Transporte y Turismo Antioquia. Todos los derechos reservados.
+        © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
+
+      <!-- Columna 2: Enlaces rápidos -->
+      <FooterLinks links={siteConfig.navigation} />
+
+      <!-- Columna 3: Datos de contacto -->
+      <FooterContact contact={siteConfig.contact} />
+
+      <!-- Columna 4: Redes sociales -->
+      <FooterSocial social={siteConfig.social} />
+    </div>
+
+    <!-- Línea de copyright -->
+    <div class="mt-8 border-t border-gray-700 pt-6 text-center">
+      <p class="text-sm text-gray-400">
+        © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.
       </p>
     </div>
   </div>

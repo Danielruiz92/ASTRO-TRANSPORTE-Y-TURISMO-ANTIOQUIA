@@ -1,0 +1,25 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+interface Props {
+  links: Array<{ name: string; href: string }>;
+}
+
+const { links } = Astro.props;
+---
+
+<div>
+  <h3 class="mb-4 font-[Poppins] text-lg font-semibold text-white">Enlaces Rápidos</h3>
+  <ul class="space-y-2">
+    {links.map((link) => (
+      <li>
+        <a
+          href={link.href}
+          class="font-[Poppins] text-sm text-gray-300 transition-colors duration-200 hover:text-white"
+        >
+          {link.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
