@@ -15,7 +15,7 @@ import SectionTitle from '../ui/SectionTitle.astro';
       <div class="group relative">
         <!-- Fondo decorativo -->
         <div
-          class="from-primary/20 to-secondary/20 absolute -inset-1 rotate-1 transform rounded-2xl bg-gradient-to-r transition-transform duration-300 group-hover:rotate-2"
+          class="from-primary/20 to-secondary/20 absolute -inset-1 rotate-1 transform rounded-2xl bg-linear-to-r transition-transform duration-300 group-hover:rotate-2"
         >
         </div>
 
@@ -119,7 +119,7 @@ import SectionTitle from '../ui/SectionTitle.astro';
       <div class="group relative">
         <!-- Fondo decorativo -->
         <div
-          class="from-secondary/20 to-primary/20 absolute -inset-1 -rotate-1 transform rounded-2xl bg-gradient-to-r transition-transform duration-300 group-hover:-rotate-2"
+          class="from-secondary/20 to-primary/20 absolute -inset-1 -rotate-1 transform rounded-2xl bg-linear-to-r transition-transform duration-300 group-hover:-rotate-2"
         >
         </div>
 
@@ -228,7 +228,7 @@ import SectionTitle from '../ui/SectionTitle.astro';
     <!-- Elemento decorativo central -->
     <div class="mt-20 text-center">
       <div class="inline-flex items-center justify-center">
-        <div class="via-primary h-px w-32 bg-gradient-to-r from-transparent to-transparent"></div>
+        <div class="via-primary h-px w-32 bg-linear-to-r from-transparent to-transparent"></div>
         <div class="mx-4">
           <div class="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-full">
             <svg
@@ -246,7 +246,7 @@ import SectionTitle from '../ui/SectionTitle.astro';
             </svg>
           </div>
         </div>
-        <div class="via-secondary h-px w-32 bg-gradient-to-r from-transparent to-transparent"></div>
+        <div class="via-secondary h-px w-32 bg-linear-to-r from-transparent to-transparent"></div>
       </div>
     </div>
   </div>
@@ -262,7 +262,7 @@ import SectionTitle from '../ui/SectionTitle.astro';
     transform: translateY(-2px);
   }
 
-  .bg-gradient-to-r {
+  .bg-linear-to-r {
     background: linear-gradient(to right, var(--tw-gradient-stops));
   }
 
