@@ -31,7 +31,7 @@ const config = configuraciones[variante];
 
 <div class="group relative">
   <button
-    class={`relative w-full transform overflow-hidden rounded-2xl ${config.bg} ${config.hoverBg} px-8 py-4 font-[Poppins] text-lg font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 ${clasePersonalizada}`}
+    class={`relative w-auto transform overflow-hidden rounded-2xl ${config.bg} ${config.hoverBg} px-8 py-2 font-[Poppins] text-base font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 ${clasePersonalizada}`}
   >
     <span class="relative z-10">{texto}</span>
     <div
@@ -40,7 +40,7 @@ const config = configuraciones[variante];
     </div>
   </button>
   <div
-    class="${config.glow} absolute inset-0 -z-10 rounded-lg opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-20"
+    class={`${config.glow} absolute inset-0 -z-10 rounded-lg opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-20`}
   >
   </div>
 </div>

@@ -3,6 +3,7 @@ import { siteConfig } from '../../data/siteConfig';
 import FooterLinks from './FooterLinks.astro';
 import FooterContact from './FooterContact.astro';
 import FooterSocial from './FooterSocial.astro';
+import FooterPortals from './FooterPortals.astro';
 ---
 
 <!-- Footer -->
@@ -38,26 +39,10 @@ import FooterSocial from './FooterSocial.astro';
       <FooterLinks links={siteConfig.navigation} />
 
       <!-- Columna 3: Datos de contacto -->
-      <FooterContact contact={siteConfig.contact} />
-
-      <!-- Columna 4: Redes sociales -->
-      <FooterSocial social={siteConfig.social} />
-    </div>
-
-    <!-- Línea de copyright -->
-    <div class="mt-8 border-t border-gray-700 pt-6 text-center">
-      <p class="text-sm text-gray-400">
-        © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.
-      </p>
-    </div>
-  </div>
-</footer>
-
-      <!-- Columna 2: Enlaces rápidos -->
-      <FooterLinks links={siteConfig.navigation} />
-
-      <!-- Columna 3: Datos de contacto -->
-      <FooterContact contact={siteConfig.contact} />
+      <div class="space-y-6">
+        <FooterContact contact={siteConfig.contact} />
+        <FooterPortals portals={siteConfig.portals} />
+      </div>
 
       <!-- Columna 4: Redes sociales -->
       <FooterSocial social={siteConfig.social} />

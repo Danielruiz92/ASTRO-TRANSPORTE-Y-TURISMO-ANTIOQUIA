@@ -15,23 +15,32 @@ import Boton from '../ui/boton.astro';
     <div class="absolute inset-0 bg-black/50"></div>
   </div>
 
-  <!-- Contenido centrado verticalmente, alineado a la izquierda -->
-  <div class="relative z-10 flex h-full items-center">
+  <!-- Contenido centrado verticalmente con logo arriba -->
+  <div class="relative z-10 flex h-full items-center justify-center">
     <div class="container mx-auto px-4">
-      <div class="max-w-3xl">
+      <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <!-- Logo con animación -->
+        <div class="mb-8 animate-fade-in-up">
+          <img
+            src="/Imagenes/Logo.webp"
+            alt="Astro Transporte y Turismo Antioquia"
+            class="h-24 md:h-32 lg:h-40 xl:h-48 animate-float opacity-90 drop-shadow-2xl max-w-full"
+          />
+        </div>
+        
         <!-- Título principal -->
-        <h1 class="mb-6 font-[Poppins] text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+        <h1 class="mb-6 font-[Poppins] text-4xl font-bold text-white leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight">
           Transporte Especializado Corporativo y Turístico en Colombia
         </h1>
 
         <!-- Subtítulo -->
-        <p class="mb-8 font-[Poppins] text-lg text-gray-200 md:text-xl">
+        <p class="mb-8 font-[Poppins] text-lg text-gray-200 md:text-xl max-w-3xl">
           Seguridad, Puntualidad y Confort para tu empresa y familia. Flota moderna monitoreada
           24/7.
         </p>
 
         <!-- Botones de llamada a la acción -->
-        <div class="flex flex-col gap-4 sm:flex-row">
+        <div class="flex flex-col gap-3 sm:flex-row justify-center">
           <!-- Botón principal: Cotizar Servicio -->
           <div class="flex items-center">
             <Boton
@@ -59,5 +68,46 @@ import Boton from '../ui/boton.astro';
   /* Aseguramos que la sección ocupe toda la altura de la pantalla */
   section {
     min-height: 100vh;
+  }
+  
+  /* Animación de flotación sutil */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Animación de aparición gradual desde abajo */
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Clases de animación */
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 1.5s ease-out forwards;
+  }
+  
+  /* Efecto de resplandor sutil para el logo */
+  .animate-float {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+    transition: filter 0.3s ease;
+  }
+  
+  .animate-float:hover {
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.5));
   }
 </style>

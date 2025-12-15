@@ -1,4 +1,6 @@
 ---
+import Boton from './boton.astro';
+
 interface Props {
   titulo: string;
   descripcion: string;
@@ -15,20 +17,17 @@ const {
   colorTema = 'primario',
 } = Astro.props;
 
-// Configuración de colores según el tema usando variables del tema
+// Configuración de colores según el tema
 const colores = {
   primario: {
-    boton: 'bg-primary hover:bg-primary-hover',
-    precio: 'text-primary',
+    precio: 'text-primary'
   },
   secundario: {
-    boton: 'bg-secondary hover:bg-secondary-hover',
-    precio: 'text-secondary',
+    precio: 'text-secondary'
   },
   neutro: {
-    boton: 'bg-gray-700 hover:bg-gray-800',
-    precio: 'text-gray-700',
-  },
+    precio: 'text-gray-600'
+  }
 };
 
 const color = colores[colorTema];
@@ -36,7 +35,7 @@ const color = colores[colorTema];
 
 <!-- Tarjeta con estilo de Guatapé: efecto de elevación y zoom -->
 <div
-  class="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+  class="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl"
 >
   <!-- Imagen con overlay -->
   <div class="relative h-48 overflow-hidden">
@@ -52,18 +51,16 @@ const color = colores[colorTema];
   </div>
 
   <!-- Contenido -->
-  <div class="p-6">
+  <div class="flex flex-grow flex-col px-6 py-4">
     <h3 class="mb-2 font-[Poppins] text-xl font-bold text-gray-800">{titulo}</h3>
-    <p class="mb-4 font-[Inter] text-gray-600">{descripcion}</p>
+    <p class="mb-2 font-[Inter] text-gray-600">{descripcion}</p>
 
     <!-- Pie de tarjeta -->
-    <div class="flex items-center justify-between">
+    <div class="mt-auto flex flex-col items-start justify-start gap-3">
       {precio && <span class={`font-[Poppins] font-semibold ${color.precio}`}>{precio}</span>}
-      <button
-        class={`rounded-lg ${color.boton} px-4 py-2 font-[Poppins] text-sm font-medium text-white transition-colors duration-300`}
-      >
-        Ver más
-      </button>
+      <div class="mt-2 flex justify-start">
+        <Boton texto="Ver más" variante={colorTema} />
+      </div>
     </div>
   </div>
 </div>

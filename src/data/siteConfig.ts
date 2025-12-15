@@ -15,12 +15,22 @@ export const siteConfig = {
     whatsapp: "+573001234567",
   },
   
+  portals: {
+    employees: {
+      name: "Acceso a Empleados",
+      url: "http://portal2sgt.azurewebsites.net/Accounts/Account/Login"
+    },
+    affiliates: {
+      name: "Portal Afiliados",
+      url: "http://afiliados.sgt.com.co/"
+    }
+  },
+  
   navigation: [
     { name: "Inicio", href: "/" },
     { name: "Servicios", href: "/servicios" },
     { name: "Flota", href: "/flota" },
     { name: "Nosotros", href: "/nosotros" },
-    { name: "Blog", href: "/blog" },
     { name: "Contacto", href: "/contacto" },
   ],
   

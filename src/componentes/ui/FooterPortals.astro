@@ -1,0 +1,42 @@
+---
+interface Props {
+  portals: {
+    employees: { name: string; url: string };
+    affiliates: { name: string; url: string };
+  };
+}
+
+const { portals } = Astro.props;
+---
+
+<div>
+  <h3 class="mb-4 font-[Poppins] text-lg font-semibold text-white">Portales</h3>
+  <ul class="space-y-2">
+    <li>
+      <a
+        href={portals.employees.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-[Poppins] text-sm text-gray-300 transition-colors duration-200 hover:text-white flex items-center gap-2"
+      >
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
+        {portals.employees.name}
+      </a>
+    </li>
+    <li>
+      <a
+        href={portals.affiliates.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-[Poppins] text-sm text-gray-300 transition-colors duration-200 hover:text-white flex items-center gap-2"
+      >
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
+        {portals.affiliates.name}
+      </a>
+    </li>
+  </ul>
+</div>
