@@ -8,11 +8,11 @@ import FooterPortals from './FooterPortals.astro';
 
 <!-- Footer -->
 <footer class="bg-dark text-white">
-  <div class="container mx-auto px-4 py-12">
-    <!-- Grid de 4 columnas -->
+  <div class="container mx-auto px-4 py-16">
+    <!-- Grid principal: 2 columnas en mobile, 4 en desktop -->
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-      <!-- Columna 1: Logo y resumen -->
-      <div class="space-y-4">
+      <!-- Columna 1: Logo y resumen (ancho doble en algunos casos) -->
+      <div class="space-y-4 lg:col-span-1">
         <div class="logo-container flex items-center space-x-3">
           <img
             src="/Imagenes/Logo.webp"
@@ -38,18 +38,46 @@ import FooterPortals from './FooterPortals.astro';
       <!-- Columna 2: Enlaces rápidos -->
       <FooterLinks links={siteConfig.navigation} />
 
-      <!-- Columna 3: Datos de contacto -->
+      <!-- Columna 3: Contacto + Portales -->
       <div class="space-y-6">
         <FooterContact contact={siteConfig.contact} />
         <FooterPortals portals={siteConfig.portals} />
       </div>
 
-      <!-- Columna 4: Redes sociales -->
-      <FooterSocial social={siteConfig.social} />
+      <!-- Columna 4: Horario + Redes Sociales -->
+      <div class="space-y-8">
+        <!-- Horario de atención -->
+        <div class="space-y-3">
+          <h3 class="text-primary font-[Poppins] text-lg font-semibold">Horario</h3>
+          <div class="space-y-2 text-sm text-gray-300">
+            <div>
+              <p class="font-semibold text-white">Lunes a Viernes</p>
+              <p class="text-xs">8:00 am – 1:00 pm<br />2:00 pm - 5:00 pm</p>
+            </div>
+            
+            <div class="pt-2">
+              <p class="font-semibold text-white">Sábado</p>
+              <p class="text-xs">8:30 am - 12:30 pm</p>
+            </div>
+            
+            <div class="pt-2">
+              <p class="font-semibold text-white">Dom. y Festivos</p>
+              <p class="text-xs text-gray-400">No disponible</p>
+            </div>
+            
+            <div class="pt-3 border-t border-gray-600">
+              <p class="text-primary font-semibold text-sm">⚡ Emergencias 24/7</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Redes sociales -->
+        <FooterSocial social={siteConfig.social} />
+      </div>
     </div>
 
     <!-- Línea de copyright -->
-    <div class="mt-8 border-t border-gray-700 pt-6 text-center">
+    <div class="mt-12 border-t border-gray-700 pt-6 text-center">
       <p class="text-sm text-gray-400">
         © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.
       </p>
