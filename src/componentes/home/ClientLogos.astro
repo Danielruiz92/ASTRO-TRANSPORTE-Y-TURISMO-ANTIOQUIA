@@ -21,8 +21,8 @@ const logos = [
       <!-- Contenedor del carrusel con efecto de máscara -->
       <div class="carousel-container relative h-56">
         <div class="carousel-track flex gap-8 animate-scroll">
-          {logos.map((logo, index) => (
-            <div key={index} class="carousel-item flex min-w-[400px] shrink-0 items-center justify-center">
+          {logos.map((logo) => (
+            <div class="carousel-item flex min-w-[400px] shrink-0 items-center justify-center">
               <div class="flex h-40 w-80 items-center justify-center rounded-xl bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
                 <img
                   src={logo.src}
@@ -33,8 +33,8 @@ const logos = [
             </div>
           ))}
           {/* Duplicar los logos para efecto continuo */}
-          {logos.map((logo, index) => (
-            <div key={`duplicate-${index}`} class="carousel-item flex min-w-[400px] shrink-0 items-center justify-center">
+          {logos.map((logo) => (
+            <div class="carousel-item flex min-w-[400px] shrink-0 items-center justify-center">
               <div class="flex h-40 w-80 items-center justify-center rounded-xl bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
                 <img
                   src={logo.src}

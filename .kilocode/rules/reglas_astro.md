@@ -1,0 +1,1 @@
+Nunca uses key en elementos HTML en Astro. La propiedad key es exclusiva de React. En Astro, simplemente itera con .map() sin agregar key a los elementos.
