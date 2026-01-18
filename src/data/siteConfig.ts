@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: "Transporte y Turismo Antioquia",
+  name: "Transporte y Turismo Antioquia S.A.S",
   description: "Empresa líder en servicios de transporte y turismo en Antioquia",
   
   contact: {
     phone: "+573043368556",
-    email: "info@transporteturismoantioquia.com",
-    address: "Medellín, Antioquia, Colombia",
+    email: "direccionsucursalmedellin@gmail.com",
+    address: "Calle 49 Sur # 45 A – 300, Oficina 1204, Envigado – Antioquia.",
   },
   
   social: {

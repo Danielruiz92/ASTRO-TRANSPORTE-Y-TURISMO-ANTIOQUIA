@@ -1,16 +1,11 @@
 ---
 // ClientLogos - Sección para mostrar empresas que confían en nosotros con carrusel continuo
 const logos = [
-  { src: '/Imagenes/logos-clientes/ball_14717960.png', alt: 'Cliente 1' },
-  { src: '/Imagenes/logos-clientes/google-apps-script_5968494.png', alt: 'Cliente 2' },
-  { src: '/Imagenes/logos-clientes/pharmacy-signal_75100.png', alt: 'Cliente 3' },
-  { src: '/Imagenes/logos-clientes/planes_4525814.png', alt: 'Cliente 4' },
-  { src: '/Imagenes/logos-clientes/stumbleupon_1532523.png', alt: 'Cliente 5' },
-  { src: '/Imagenes/logos-clientes/tinder_2504829.png', alt: 'Cliente 6' },
-  { src: '/Imagenes/logos-clientes/vior_16147279.png', alt: 'Cliente 7' },
-  { src: '/Imagenes/logos-clientes/yoga-roll_2310544.png', alt: 'Cliente 8' },
-  { src: '/Imagenes/logos-clientes/ball_14717960.png', alt: 'Cliente 9' },
-  { src: '/Imagenes/logos-clientes/google-apps-script_5968494.png', alt: 'Cliente 10' },
+  { src: '/index/clientes/alcaldia-rio-negro copia.webp', alt: 'Alcaldía Rio Negro' },
+  { src: '/index/clientes/don-matias.webp', alt: 'Don Matías' },
+  { src: '/index/clientes/fundacion-pascual copia.webp', alt: 'Fundación Pascual' },
+  { src: '/index/clientes/Recurso 1 copia.webp', alt: 'Cliente' },
+  { src: '/index/clientes/UNIVERSIDAD DE ANTIOQUIA copia.webp', alt: 'Universidad de Antioquia' },
 ];
 ---
 
@@ -24,27 +19,27 @@ const logos = [
     <!-- Carrusel continuo -->
     <div class="relative overflow-hidden rounded-2xl">
       <!-- Contenedor del carrusel con efecto de máscara -->
-      <div class="carousel-container relative h-24">
+      <div class="carousel-container relative h-56">
         <div class="carousel-track flex gap-8 animate-scroll">
           {logos.map((logo, index) => (
-            <div key={index} class="carousel-item flex min-w-[200px] shrink-0 items-center justify-center">
-              <div class="flex h-20 w-40 items-center justify-center rounded-xl bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <div key={index} class="carousel-item flex min-w-[400px] shrink-0 items-center justify-center">
+              <div class="flex h-40 w-80 items-center justify-center rounded-xl bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  class="h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
             </div>
           ))}
           {/* Duplicar los logos para efecto continuo */}
           {logos.map((logo, index) => (
-            <div key={`duplicate-${index}`} class="carousel-item flex min-w-[200px] shrink-0 items-center justify-center">
-              <div class="flex h-20 w-40 items-center justify-center rounded-xl bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <div key={`duplicate-${index}`} class="carousel-item flex min-w-[400px] shrink-0 items-center justify-center">
+              <div class="flex h-40 w-80 items-center justify-center rounded-xl bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  class="h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
             </div>

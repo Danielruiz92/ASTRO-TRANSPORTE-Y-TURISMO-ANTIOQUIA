@@ -39,7 +39,7 @@ export const POST: APIRoute = async ({ request }) => {
     
     // Ejemplo de integración futura:
     // await sendEmail({
-    //   to: 'info@transporteturismoantioquia.com',
+    //   to: 'direccionsucursalmedellin@gmail.com',
     //   subject: `Nuevo contacto de ${name}`,
     //   text: message,
     //   replyTo: email
