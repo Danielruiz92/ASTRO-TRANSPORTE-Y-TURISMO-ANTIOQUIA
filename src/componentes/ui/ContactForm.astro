@@ -1,5 +1,6 @@
 ---
 // Componente de formulario de contacto
+import Boton from './boton.astro';
 ---
 
 <form class="space-y-6">
@@ -99,20 +100,12 @@
 
   <!-- Botón de envío -->
   <div>
-    <button
+    <Boton
+      texto="Enviar Mensaje"
+      variante="primario"
       type="submit"
-      class="group bg-primary hover:bg-primary-hover relative w-full transform overflow-hidden rounded-2xl px-8 py-4 font-[Poppins] text-lg font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95"
-    >
-      <span class="relative z-10">Enviar Mensaje</span>
-      <div
-        class="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-      >
-      </div>
-    </button>
-    <div
-      class="bg-primary absolute inset-0 -z-10 rounded-2xl opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-30"
-    >
-    </div>
+      clasePersonalizada="w-full text-lg py-4"
+    />
   </div>
 
   <!-- Mensaje de confirmación (oculto inicialmente) -->

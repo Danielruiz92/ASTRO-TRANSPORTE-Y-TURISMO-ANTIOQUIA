@@ -5,9 +5,10 @@ interface Props {
   clasePersonalizada?: string;
   href?: string;
   target?: '_blank' | '_self';
+  type?: 'button' | 'submit' | 'reset';
 }
 
-const { texto, variante, clasePersonalizada = '', href, target = '_self' } = Astro.props;
+const { texto, variante, clasePersonalizada = '', href, target = '_self', type = 'button' } = Astro.props;
 
 // Configuración de colores según la variante usando variables del tema
 const configuraciones = {
@@ -30,11 +31,21 @@ const configuraciones = {
 
 const config = configuraciones[variante];
 
+// Detectar si hay clases personalizadas que sobrescriben estilos base
+const customHasBg = clasePersonalizada.includes('bg-');
+const customHasText = clasePersonalizada.includes('text-');
+const customHasHover = clasePersonalizada.includes('hover:bg-');
+
+// Solo aplicar estilos base si no hay sobrescritura en clases personalizadas
+const bgClass = customHasBg ? '' : config.bg;
+const hoverBgClass = customHasHover ? '' : config.hoverBg;
+const textClass = customHasText ? '' : 'text-white';
+
 // Clases compartidas entre botón y enlace
-const sharedClasses = `relative w-auto transform overflow-hidden rounded-2xl ${config.bg} ${config.hoverBg} px-8 py-2 font-[Poppins] text-base font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 ${clasePersonalizada}`;
+const sharedClasses = `relative w-auto transform overflow-hidden rounded-2xl ${bgClass} ${hoverBgClass} px-8 py-2 font-[Poppins] text-base font-semibold tracking-wide ${textClass} shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 ${clasePersonalizada}`;
 ---
 
-<div class="group relative">
+<div class="group relative overflow-hidden rounded-2xl">
   {href ? (
     <a
       href={href}
@@ -50,6 +61,7 @@ const sharedClasses = `relative w-auto transform overflow-hidden rounded-2xl ${c
     </a>
   ) : (
     <button
+      type={type}
       class={sharedClasses}
     >
       <span class="relative z-10">{texto}</span>
@@ -60,7 +72,7 @@ const sharedClasses = `relative w-auto transform overflow-hidden rounded-2xl ${c
     </button>
   )}
   <div
-    class={`${config.glow} absolute inset-0 -z-10 rounded-lg opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-20`}
+    class={`${config.glow} absolute inset-0 -z-10 rounded-lg opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-20 pointer-events-none`}
   >
   </div>
 </div>

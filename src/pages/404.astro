@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Boton from '../componentes/ui/boton.astro';
 ---
 
 <Layout
@@ -53,16 +54,12 @@ import Layout from '../layouts/Layout.astro';
 
         <!-- Botón para volver al inicio -->
         <div class="flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <a
+          <Boton
+            texto="Volver al Inicio"
+            variante="primario"
             href="/"
-            class="group bg-primary hover:bg-primary-hover relative inline-block transform overflow-hidden rounded-2xl px-8 py-4 font-[Poppins] text-lg font-semibold tracking-wide text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95"
-          >
-            <span class="relative z-10">Volver al Inicio</span>
-            <div
-              class="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-            >
-            </div>
-          </a>
+            clasePersonalizada="text-lg py-4"
+          />
         </div>
 
         <!-- Enlaces adicionales -->
@@ -71,24 +68,24 @@ import Layout from '../layouts/Layout.astro';
             ¿O quizás buscas alguno de estos servicios?
           </p>
           <div class="flex flex-wrap justify-center gap-3">
-            <a
+            <Boton
+              texto="Nuestros Servicios"
+              variante="neutro"
               href="/servicios"
-              class="hover:bg-primary rounded-full bg-gray-100 px-4 py-2 font-[Inter] text-sm text-gray-700 transition-colors duration-200 hover:text-white"
-            >
-              Nuestros Servicios
-            </a>
-            <a
+              clasePersonalizada="rounded-full bg-gray-100 text-gray-700 hover:bg-primary hover:text-white text-sm py-2 px-4"
+            />
+            <Boton
+              texto="Nuestra Flota"
+              variante="neutro"
               href="/flota"
-              class="hover:bg-primary rounded-full bg-gray-100 px-4 py-2 font-[Inter] text-sm text-gray-700 transition-colors duration-200 hover:text-white"
-            >
-              Nuestra Flota
-            </a>
-            <a
+              clasePersonalizada="rounded-full bg-gray-100 text-gray-700 hover:bg-primary hover:text-white text-sm py-2 px-4"
+            />
+            <Boton
+              texto="Contacto"
+              variante="neutro"
               href="/contacto"
-              class="hover:bg-primary rounded-full bg-gray-100 px-4 py-2 font-[Inter] text-sm text-gray-700 transition-colors duration-200 hover:text-white"
-            >
-              Contacto
-            </a>
+              clasePersonalizada="rounded-full bg-gray-100 text-gray-700 hover:bg-primary hover:text-white text-sm py-2 px-4"
+            />
           </div>
         </div>
       </div>

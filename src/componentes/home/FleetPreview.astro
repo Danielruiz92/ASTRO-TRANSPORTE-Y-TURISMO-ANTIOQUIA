@@ -1,7 +1,6 @@
 ---
 import SectionTitle from '../ui/SectionTitle.astro';
 import Tarjeta from '../ui/tarjeta.astro';
-import Boton from '../ui/boton.astro';
 ---
 
 <section class="bg-gray-50 py-16">
@@ -11,13 +10,14 @@ import Boton from '../ui/boton.astro';
       subtitulo="Vehículos confortables y seguros para todo tipo de necesidades"
     />
 
-    <div class="mb-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
       <!-- Automóviles/Camionetas -->
       <Tarjeta
         titulo="Automóviles/Camionetas"
         imagen="/Imagenes/fotos/automovil.webp"
         descripcion="Ideal para traslados ejecutivos rápidos. 1-4 pasajeros."
         colorTema="secundario"
+        href="/flota"
       />
 
       <!-- Vans/Minivans -->
@@ -26,6 +26,7 @@ import Boton from '../ui/boton.astro';
         imagen="/Imagenes/fotos/minivans.webp"
         descripcion="Perfecto para grupos pequeños y familias. 7-19 pasajeros."
         colorTema="secundario"
+        href="/flota"
       />
 
       <!-- Busetas/Buses -->
@@ -34,11 +35,8 @@ import Boton from '../ui/boton.astro';
         imagen="/Imagenes/fotos/bus.webp"
         descripcion="Para grandes eventos y turismo masivo. 20-40 pasajeros."
         colorTema="secundario"
+        href="/flota"
       />
-    </div>
-
-    <div data-animate="fade-up" data-delay="400" class="text-center">
-      <Boton texto="Ver toda la flota" variante="secundario" href="/flota" />
     </div>
   </div>
 </section>

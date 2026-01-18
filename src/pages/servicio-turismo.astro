@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../componentes/ui/PageHeader.astro';
 import Boton from '../componentes/ui/boton.astro';
+import Tarjeta from '../componentes/ui/tarjeta.astro';
 ---
 
 <Layout
@@ -161,56 +162,24 @@ import Boton from '../componentes/ui/boton.astro';
           Destinos Populares
         </h3>
         <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
-          <!-- Destino 1 -->
-          <div class="overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl">
-            <div class="relative h-48">
-              <img
-                src="/servicio-turismo/Destinos-Populares/Guatapé.webp"
-                alt="Guatapé"
-                class="h-full w-full object-cover"
-              />
-            </div>
-            <div class="p-6">
-              <h4 class="text-dark mb-2 font-[Poppins] text-xl font-bold">Guatapé</h4>
-              <p class="font-[Inter] text-gray-600">
-                El pueblo más colorido de Colombia con vistas impresionantes al lago.
-              </p>
-            </div>
-          </div>
-
-          <!-- Destino 2 -->
-          <div class="overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl">
-            <div class="relative h-48">
-              <img
-                src="/servicio-turismo/Destinos-Populares/Comuna_13,_Medellín.webp"
-                alt="Comuna 13"
-                class="h-full w-full object-cover"
-              />
-            </div>
-            <div class="p-6">
-              <h4 class="text-dark mb-2 font-[Poppins] text-xl font-bold">Comuna 13</h4>
-              <p class="font-[Inter] text-gray-600">
-                Arte callejero, transformación urbana y cultura local de Medellín.
-              </p>
-            </div>
-          </div>
-
-          <!-- Destino 3 -->
-          <div class="overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl">
-            <div class="relative h-48">
-              <img
-                src="/servicio-turismo/Destinos-Populares/Santa_Fe_de_Antioquia.webp"
-                alt="Santa Fe de Antioquia"
-                class="h-full w-full object-cover"
-              />
-            </div>
-            <div class="p-6">
-              <h4 class="text-dark mb-2 font-[Poppins] text-xl font-bold">Santa Fe de Antioquia</h4>
-              <p class="font-[Inter] text-gray-600">
-                Pueblo colonial con arquitectura histórica y gastronomía antioqueña.
-              </p>
-            </div>
-          </div>
+          <Tarjeta
+            titulo="Guatapé"
+            imagen="/servicio-turismo/Destinos-Populares/Guatapé.webp"
+            descripcion="El pueblo más colorido de Colombia con vistas impresionantes al lago."
+            colorTema="primario"
+          />
+          <Tarjeta
+            titulo="Comuna 13"
+            imagen="/servicio-turismo/Destinos-Populares/Comuna_13,_Medellín.webp"
+            descripcion="Arte callejero, transformación urbana y cultura local de Medellín."
+            colorTema="primario"
+          />
+          <Tarjeta
+            titulo="Santa Fe de Antioquia"
+            imagen="/servicio-turismo/Destinos-Populares/Santa_Fe_de_Antioquia.webp"
+            descripcion="Pueblo colonial con arquitectura histórica y gastronomía antioqueña."
+            colorTema="primario"
+          />
         </div>
       </div>
     </section>

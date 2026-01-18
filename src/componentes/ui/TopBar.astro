@@ -1,5 +1,6 @@
 ---
 // TopBar - Barra superior con información de contacto y enlaces rápidos
+import Boton from './boton.astro';
 ---
 
 <!-- Barra superior delgada (solo en escritorio) -->
@@ -21,23 +22,21 @@
 
     <!-- Enlaces rápidos (derecha) -->
     <div class="flex flex-col items-center gap-3 sm:flex-row sm:space-x-3">
-      <a 
-        href="http://afiliados.sgt.com.co/" 
+      <Boton
+        texto="Portal Afiliados"
+        variante="primario"
+        href="http://afiliados.sgt.com.co/"
         target="_blank"
-        rel="noopener noreferrer"
-        class="rounded-full bg-primary px-5 py-1.5 text-xs font-semibold text-white transition-all duration-300 hover:bg-primary-hover hover:shadow-lg hover:scale-105"
-      >
-        Portal Afiliados
-      </a>
+        clasePersonalizada="rounded-full px-5 py-1.5 text-xs hover:shadow-lg"
+      />
       <span class="hidden sm:inline text-gray-400">|</span>
-      <a 
-        href="http://portal2sgt.azurewebsites.net/Accounts/Account/Login" 
+      <Boton
+        texto="Portal Empleados"
+        variante="secundario"
+        href="http://portal2sgt.azurewebsites.net/Accounts/Account/Login"
         target="_blank"
-        rel="noopener noreferrer"
-        class="rounded-full bg-secondary px-5 py-1.5 text-xs font-semibold text-white transition-all duration-300 hover:bg-secondary-hover hover:shadow-lg hover:scale-105"
-      >
-        Portal Empleados
-      </a>
+        clasePersonalizada="rounded-full px-5 py-1.5 text-xs hover:shadow-lg"
+      />
     </div>
   </div>
 </div>
