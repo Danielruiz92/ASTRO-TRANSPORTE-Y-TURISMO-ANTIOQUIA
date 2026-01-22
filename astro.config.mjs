@@ -11,6 +11,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   server: {
-    allowedHosts: ['transporte.rv24.ovh', 'localhost'],
+    allowedHosts: ['transporte.rv24.ovh', 'transporteyturismoantioquia.com', 'www.transporteyturismoantioquia.com', 'localhost'],
   },
 });
