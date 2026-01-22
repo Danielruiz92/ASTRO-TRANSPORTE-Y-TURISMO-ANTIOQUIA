@@ -23,6 +23,10 @@ const {
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/webp" href="/Imagenes/Logo.webp" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+
     <title>{title} | Transporte y Turismo Antioquia S.A.S</title>
     <meta name="description" content={description} />
 
@@ -30,13 +34,13 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`${title} | Transporte y Turismo Antioquia S.A.S`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/Imagenes/social-share.jpg" />
+    <meta property="og:image" content={new URL("/index/index-hero.webp", Astro.site)} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={`${title} | Transporte y Turismo Antioquia S.A.S`} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="/Imagenes/social-share.jpg" />
+    <meta property="twitter:image" content={new URL("/index/index-hero.webp", Astro.site)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

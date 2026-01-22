@@ -1,12 +1,5 @@
-# robots.txt para Transporte y Turismo Antioquia
-# Permite a los crawlers de los motores de búsqueda indexar el sitio
-
 User-agent: *
 Allow: /
+Disallow: /api/
 
-# Bloquear acceso a directorios administrativos o privados si los hubiera
-# Disallow: /admin/
-# Disallow: /private/
-
-# Sitemap del sitio (actualizar con la URL correcta cuando esté disponible)
-# Sitemap: https://tudominio.com/sitemap.xml
+Sitemap: https://www.tranporteyturismoantioquia.com/sitemap-index.xml
