@@ -3,6 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import PageHeader from '../componentes/ui/PageHeader.astro';
 import Tarjeta from '../componentes/ui/tarjeta.astro';
 import Boton from '../componentes/ui/boton.astro';
+import dummyImage from '../assets/Imagenes/Dummy.webp';
+import automovilImage from '../assets/Imagenes/fotos/automovil.webp';
+import image4x4 from '../assets/Imagenes/fotos/4x4.webp';
+import turismoImage from '../assets/Imagenes/fotos/turismo.webp';
+import minivansImage from '../assets/Imagenes/fotos/minivans.webp';
+import doblecabinaImage from '../assets/Imagenes/fotos/doblecabina.webp';
+import vehiculosEspecialesImage from '../assets/Imagenes/fotos/vehiculos-especiales.webp';
 ---
 
 <Layout
@@ -13,7 +20,7 @@ import Boton from '../componentes/ui/boton.astro';
   <PageHeader
     titulo="Nuestra Flota"
     subtitulo="Vehículos modernos y seguros"
-    imagenFondo="/Imagenes/Dummy.webp"
+    imagenFondo={dummyImage}
   />
 
   <!-- Contenido principal -->
@@ -36,7 +43,7 @@ import Boton from '../componentes/ui/boton.astro';
         <Tarjeta
           titulo="Automóviles"
           descripcion="Vehículos de lujo y confort ideales para traslados ejecutivos, viajes de negocios o servicios especiales. Perfectos para 1-4 pasajeros."
-          imagen="/Imagenes/fotos/automovil.webp"
+          imagen={automovilImage}
           colorTema="secundario"
         />
 
@@ -44,7 +51,7 @@ import Boton from '../componentes/ui/boton.astro';
         <Tarjeta
           titulo="Camionetas 4x4"
           descripcion="Vehículos con tracción en las cuatro ruedas, perfectos para terrenos difíciles y rutas turísticas en zonas montañosas."
-          imagen="/Imagenes/fotos/4x4.webp"
+          imagen={image4x4}
           colorTema="secundario"
         />
 
@@ -52,7 +59,7 @@ import Boton from '../componentes/ui/boton.astro';
         <Tarjeta
           titulo="Vans"
           descripcion="Espaciosas y confortables, ideales para grupos familiares o turismo pequeño. Capacidad para 7-10 pasajeros con equipaje."
-          imagen="/Imagenes/fotos/turismo.webp"
+          imagen={turismoImage}
           colorTema="secundario"
         />
 
@@ -60,7 +67,7 @@ import Boton from '../componentes/ui/boton.astro';
         <Tarjeta
           titulo="Minivans/Busetas"
           descripcion="Perfectas para grupos medianos, empresas o tours grupales. Capacidad para 19-25 pasajeros con aire acondicionado y confort."
-          imagen="/Imagenes/fotos/minivans.webp"
+          imagen={minivansImage}
           colorTema="secundario"
         />
 
@@ -68,7 +75,7 @@ import Boton from '../componentes/ui/boton.astro';
         <Tarjeta
           titulo="Camionetas Doble Cabina"
           descripcion="Camionetas robustas y versátiles para transporte de carga y personal. Ideales para terrenos difíciles y servicios especializados. Capacidad para 4-6 pasajeros más carga."
-          imagen="/Imagenes/fotos/doblecabina.webp"
+          imagen={doblecabinaImage}
           colorTema="secundario"
         />
 
@@ -76,7 +83,7 @@ import Boton from '../componentes/ui/boton.astro';
         <Tarjeta
           titulo="Vehículos Especiales"
           descripcion="Unidades adaptadas para transporte de personas con movilidad reducida y servicios especiales del sector salud."
-          imagen="/Imagenes/fotos/vehiculos-especiales.webp"
+          imagen={vehiculosEspecialesImage}
           colorTema="secundario"
         />
       </div>

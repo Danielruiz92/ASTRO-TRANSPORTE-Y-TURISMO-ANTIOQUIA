@@ -1,5 +1,9 @@
 ---
-// CertificacionesSection.astro - Sección de certificaciones
+// CertificationsSection.astro - Sección de certificaciones
+import { Image } from 'astro:assets';
+import iso9001 from '../../assets/index/Certificaciones/LOGO SIN QR ISO 9001.png';
+import iso45001 from '../../assets/index/Certificaciones/LOGO SIN QR ISO 45001.png';
+import unificado from '../../assets/index/Certificaciones/LOGO SIN QR UNIFICADO.png';
 ---
 
 <section class="py-16 bg-white">
@@ -13,26 +17,29 @@
     
     <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
       <div class="group relative flex items-center justify-center">
-        <img 
-          src="/index/Certificaciones/LOGO SIN QR ISO 9001.png" 
+        <Image 
+          src={iso9001}
           alt="Certificación ISO 9001" 
           class="h-40 md:h-56 w-auto object-contain transition-all duration-500 group-hover:scale-110 group-hover:shadow-2xl"
+          width={400}
         />
       </div>
       
       <div class="group relative flex items-center justify-center">
-        <img 
-          src="/index/Certificaciones/LOGO SIN QR ISO 45001.png" 
+        <Image 
+          src={iso45001}
           alt="Certificación ISO 45001" 
           class="h-40 md:h-56 w-auto object-contain transition-all duration-500 group-hover:scale-110 group-hover:shadow-2xl"
+          width={400}
         />
       </div>
       
       <div class="group relative flex items-center justify-center">
-        <img 
-          src="/index/Certificaciones/LOGO SIN QR UNIFICADO.png" 
+        <Image 
+          src={unificado}
           alt="Certificación Unificada" 
           class="h-40 md:h-56 w-auto object-contain transition-all duration-500 group-hover:scale-110 group-hover:shadow-2xl"
+          width={400}
         />
       </div>
     </div>

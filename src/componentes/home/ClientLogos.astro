@@ -1,11 +1,18 @@
 ---
 // ClientLogos - Sección para mostrar empresas que confían en nosotros con carrusel continuo
+import { Image } from 'astro:assets';
+import alcaldiaRioNegro from '../../assets/index/clientes/alcaldia-rio-negro copia.webp';
+import donMatias from '../../assets/index/clientes/don-matias.webp';
+import fundacionPascual from '../../assets/index/clientes/fundacion-pascual copia.webp';
+import cliente1 from '../../assets/index/clientes/Recurso 1 copia.webp';
+import universidadAntioquia from '../../assets/index/clientes/UNIVERSIDAD DE ANTIOQUIA copia.webp';
+
 const logos = [
-  { src: '/index/clientes/alcaldia-rio-negro copia.webp', alt: 'Alcaldía Rio Negro' },
-  { src: '/index/clientes/don-matias.webp', alt: 'Don Matías' },
-  { src: '/index/clientes/fundacion-pascual copia.webp', alt: 'Fundación Pascual' },
-  { src: '/index/clientes/Recurso 1 copia.webp', alt: 'Cliente' },
-  { src: '/index/clientes/UNIVERSIDAD DE ANTIOQUIA copia.webp', alt: 'Universidad de Antioquia' },
+  { src: alcaldiaRioNegro, alt: 'Alcaldía Rio Negro' },
+  { src: donMatias, alt: 'Don Matías' },
+  { src: fundacionPascual, alt: 'Fundación Pascual' },
+  { src: cliente1, alt: 'Cliente' },
+  { src: universidadAntioquia, alt: 'Universidad de Antioquia' },
 ];
 ---
 
@@ -24,10 +31,11 @@ const logos = [
           {logos.map((logo) => (
             <div class="carousel-item flex min-w-[400px] shrink-0 items-center justify-center">
               <div class="flex h-40 w-80 items-center justify-center rounded-xl bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
-                <img
+                <Image
                   src={logo.src}
                   alt={logo.alt}
                   class="h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  width={400}
                 />
               </div>
             </div>
@@ -36,10 +44,11 @@ const logos = [
           {logos.map((logo) => (
             <div class="carousel-item flex min-w-[400px] shrink-0 items-center justify-center">
               <div class="flex h-40 w-80 items-center justify-center rounded-xl bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
-                <img
+                <Image
                   src={logo.src}
                   alt={logo.alt}
                   class="h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  width={400}
                 />
               </div>
             </div>

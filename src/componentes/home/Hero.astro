@@ -1,15 +1,19 @@
 ---
+import { Image } from 'astro:assets';
 import Boton from '../ui/boton.astro';
+import indexHero from '../../assets/index-hero.webp';
+import logo from '../../assets/Imagenes/Logo.webp';
 ---
 
 <!-- Sección Hero con imagen de fondo y gradiente oscuro -->
 <section class="relative h-screen">
   <!-- Imagen de fondo -->
   <div class="absolute inset-0">
-    <img
-      src="/index/index-hero.webp"
+    <Image
+      src={indexHero}
       alt="Transporte corporativo y turístico"
       class="h-full w-full object-cover"
+      width={1920}
       loading="eager"
       fetchpriority="high"
     />
@@ -23,10 +27,11 @@ import Boton from '../ui/boton.astro';
       <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
         <!-- Logo con animación -->
         <div class="mb-8 animate-fade-in-up">
-          <img
-            src="/Imagenes/Logo.webp"
+          <Image
+            src={logo}
             alt="Astro Transporte y Turismo Antioquia S.A.S"
             class="h-24 md:h-32 lg:h-40 xl:h-48 animate-float opacity-90 drop-shadow-2xl max-w-full"
+            width={200}
             loading="eager"
             fetchpriority="high"
           />

@@ -1,6 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import SectionTitle from '../ui/SectionTitle.astro';
 import Tarjeta from '../ui/tarjeta.astro';
+import automovil from '../../assets/Imagenes/fotos/automovil.webp';
+import minivans from '../../assets/Imagenes/fotos/minivans.webp';
+import doblecabina from '../../assets/Imagenes/fotos/doblecabina.webp';
 ---
 
 <section class="bg-gray-50 py-16">
@@ -14,7 +18,7 @@ import Tarjeta from '../ui/tarjeta.astro';
       <!-- Automóviles/Camionetas -->
       <Tarjeta
         titulo="Automóviles/Camionetas"
-        imagen="/Imagenes/fotos/automovil.webp"
+        imagen={automovil}
         descripcion="Ideal para traslados ejecutivos rápidos. 1-4 pasajeros."
         colorTema="secundario"
         href="/flota"
@@ -23,7 +27,7 @@ import Tarjeta from '../ui/tarjeta.astro';
       <!-- Vans/Minivans -->
       <Tarjeta
         titulo="Vans/Minivans"
-        imagen="/Imagenes/fotos/minivans.webp"
+        imagen={minivans}
         descripcion="Perfecto para grupos pequeños y familias. 7-19 pasajeros."
         colorTema="secundario"
         href="/flota"
@@ -32,7 +36,7 @@ import Tarjeta from '../ui/tarjeta.astro';
       <!-- Camionetas Doble Cabina -->
       <Tarjeta
         titulo="Camionetas Doble Cabina"
-        imagen="/Imagenes/fotos/doblecabina.webp"
+        imagen={doblecabina}
         descripcion="Robustas y versátiles para transporte de carga y personal. 4-6 pasajeros más carga."
         colorTema="secundario"
         href="/flota"

@@ -1,11 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import Boton from './boton.astro';
+import dummyImage from '../../assets/Imagenes/Dummy.webp';
 
 interface Props {
   titulo: string;
   descripcion: string;
   precio?: string;
-  imagen?: string;
+  imagen?: any;
   colorTema?: 'primario' | 'secundario' | 'neutro';
   href?: string;
 }
@@ -14,7 +16,7 @@ const {
   titulo,
   descripcion,
   precio,
-  imagen = '/Imagenes/Dummy.webp',
+  imagen = dummyImage,
   colorTema = 'primario',
   href,
 } = Astro.props;
@@ -41,10 +43,12 @@ const color = colores[colorTema];
 >
   <!-- Imagen con overlay -->
   <div class="relative h-48 shrink-0 overflow-hidden bg-gray-100">
-    <img
+    <Image
       src={imagen}
       alt={titulo}
       class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+      width={800}
+      height={600}
       loading="lazy"
       decoding="async"
     />
