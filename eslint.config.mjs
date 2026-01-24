@@ -33,6 +33,14 @@ export default [
     },
   },
 
+  // 6. Excepción para tarjeta.astro: permitir 'as any' para compatibilidad con Image de Astro
+  {
+    files: ['src/componentes/ui/tarjeta.astro'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
+
   // 6. Prettier (siempre al final para desactivar reglas de formato conflictivas)
   eslintConfigPrettier,
 ];

@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 interface Props {
   titulo: string;
   subtitulo?: string;
-  imagenFondo: any;
+  imagenFondo: unknown;
 }
 
 const { titulo, subtitulo, imagenFondo } = Astro.props;
@@ -14,7 +14,7 @@ const { titulo, subtitulo, imagenFondo } = Astro.props;
 <section class="relative min-h-[40vh]">
   <!-- Imagen de fondo -->
   <div class="absolute inset-0">
-    <Image src={imagenFondo} alt={titulo} class="h-full w-full object-cover" width={1920} height={1080} />
+    <Image src={imagenFondo as string} alt={titulo} class="h-full w-full object-cover" width={1920} height={1080} />
     <!-- Gradiente oscuro superpuesto -->
     <div class="absolute inset-0 bg-black/60"></div>
   </div>

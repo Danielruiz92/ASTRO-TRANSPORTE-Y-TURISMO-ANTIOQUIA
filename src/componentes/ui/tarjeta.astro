@@ -3,11 +3,19 @@ import { Image } from 'astro:assets';
 import Boton from './boton.astro';
 import dummyImage from '../../assets/Imagenes/Dummy.webp';
 
+// Type for image assets imported in Astro
+type ImageAsset = {
+  src: string;
+  width: number;
+  height: number;
+  format: 'jpeg' | 'jpg' | 'png' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
+};
+
 interface Props {
   titulo: string;
   descripcion: string;
   precio?: string;
-  imagen?: any;
+  imagen?: string | ImageAsset;
   colorTema?: 'primario' | 'secundario' | 'neutro';
   href?: string;
 }
@@ -44,7 +52,7 @@ const color = colores[colorTema];
   <!-- Imagen con overlay -->
   <div class="relative h-48 shrink-0 overflow-hidden bg-gray-100">
     <Image
-      src={imagen}
+      src={imagen as any}
       alt={titulo}
       class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
       width={800}
