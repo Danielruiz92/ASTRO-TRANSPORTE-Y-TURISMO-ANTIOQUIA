@@ -6,11 +6,20 @@ interface NavItem {
   isActive?: boolean;
 }
 
-interface MobileMenuProps {
-  items: NavItem[];
+interface Portal {
+  name: string;
+  url: string;
 }
 
-export default function MobileMenu({ items }: MobileMenuProps) {
+interface MobileMenuProps {
+  items: NavItem[];
+  portals?: {
+    employees: Portal;
+    affiliates: Portal;
+  };
+}
+
+export default function MobileMenu({ items, portals }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -88,6 +97,39 @@ export default function MobileMenu({ items }: MobileMenuProps) {
                   {item.name}
                 </a>
               ))}
+              
+              {/* Sección de Portales */}
+              {portals && (
+                <div className="pt-3 mt-3 border-t border-gray-200">
+                  <p className="px-3 pb-2 text-xs font-[Poppins] font-semibold text-gray-500 uppercase tracking-wider">
+                    Portales
+                  </p>
+                  <a
+                    href={portals.employees.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-2 rounded-md font-[Poppins] font-medium text-dark hover:text-primary hover:bg-light transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    {portals.employees.name}
+                  </a>
+                  <a
+                    href={portals.affiliates.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-2 rounded-md font-[Poppins] font-medium text-dark hover:text-primary hover:bg-light transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    {portals.affiliates.name}
+                  </a>
+                </div>
+              )}
             </nav>
           </div>
         </>

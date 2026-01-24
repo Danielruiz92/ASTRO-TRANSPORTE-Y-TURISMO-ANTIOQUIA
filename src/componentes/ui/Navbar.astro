@@ -50,7 +50,7 @@ const navItems = siteConfig.navigation.map(item => ({
 
       <!-- Botón menú hamburguesa (móvil) - Ahora con React -->
       <div class="md:hidden">
-        <MobileMenu items={navItems} client:load />
+        <MobileMenu items={navItems} portals={siteConfig.portals} client:load />
       </div>
     </div>
 

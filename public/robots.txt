@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /api/
+Allow: /
 
-Sitemap: https://www.tranporteyturismoantioquia.com/sitemap-index.xml
+Sitemap: https://www.transporteyturismoantioquia.com/sitemap-index.xml
