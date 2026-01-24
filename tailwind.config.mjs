@@ -9,8 +9,8 @@ export default {
           hover: '#054d38',
         },
         secondary: {
-          DEFAULT: '#148ae4',
-          hover: '#0f72c4',
+          DEFAULT: '#2563eb',
+          hover: '#1d4ed8',
         },
         dark: '#1f2937',
         light: '#f3f6ff',
