@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   titulo: string;
   descripcion: string;
   caracteristicas: string[];
-  imagen: string;
+  imagen: ImageMetadata | string;
   imagenPosicion?: 'izquierda' | 'derecha';
   mostrarCTA?: boolean;
 }
@@ -31,11 +33,20 @@ import Boton from './boton.astro';
       <!-- Imagen -->
       <div class={imagenPosicion === 'derecha' ? 'lg:col-start-2' : ''}>
         <div class="relative overflow-hidden rounded-2xl shadow-xl">
-          <img
-            src={imagen}
-            alt={titulo}
-            class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-          />
+          {typeof imagen === 'string' ? (
+            <img
+              src={imagen}
+              alt={titulo}
+              class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+            />
+          ) : (
+            <Image
+              src={imagen}
+              alt={titulo}
+              class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+              loading="lazy"
+            />
+          )}
           <div
             class="from-primary/20 absolute inset-0 bg-linear-to-t to-transparent opacity-0 transition-opacity duration-500 hover:opacity-100"
           >

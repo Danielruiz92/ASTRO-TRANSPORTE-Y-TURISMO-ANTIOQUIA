@@ -3,6 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import PageHeader from '../componentes/ui/PageHeader.astro';
 import ServiceDetail from '../componentes/ui/ServiceDetail.astro';
 import Boton from '../componentes/ui/boton.astro';
+
+// Importar imágenes desde assets
+import turismoImg from '../assets/Imagenes/fotos/turismo.webp';
+import empresarialImg from '../assets/Imagenes/fotos/empresarial.webp';
+import saludImg from '../assets/Imagenes/fotos/salud.webp';
+import escolarImg from '../assets/Imagenes/fotos/escolar.webp';
 ---
 
 <Layout
@@ -25,7 +31,7 @@ import Boton from '../componentes/ui/boton.astro';
         'Vehículos confortables con aire acondicionado',
         'Flexibilidad de horarios y rutas personalizadas',
       ]}
-      imagen="/Imagenes/fotos/turismo.webp"
+      imagen={turismoImg}
       imagenPosicion="izquierda"
     />
 
@@ -40,7 +46,7 @@ import Boton from '../componentes/ui/boton.astro';
         'Conductores profesionales con uniforme',
         'Facturación detallada y contratos corporativos',
       ]}
-      imagen="/Imagenes/fotos/empresarial.webp"
+      imagen={empresarialImg}
       imagenPosicion="derecha"
     />
 
@@ -55,7 +61,7 @@ import Boton from '../componentes/ui/boton.astro';
         'Conductores capacitados en atención a pacientes',
         'Cumplimiento estricto de horarios médicos',
       ]}
-      imagen="/Imagenes/fotos/salud.webp"
+      imagen={saludImg}
       imagenPosicion="izquierda"
     />
 
@@ -70,7 +76,7 @@ import Boton from '../componentes/ui/boton.astro';
         'Sistema de monitoreo GPS en tiempo real',
         'Seguro de accidentes y responsabilidad civil',
       ]}
-      imagen="/Imagenes/fotos/escolar.webp"
+      imagen={escolarImg}
       imagenPosicion="derecha"
     />
 

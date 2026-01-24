@@ -1,6 +1,12 @@
 ---
 import SectionTitle from '../ui/SectionTitle.astro';
 import Tarjeta from '../ui/tarjeta.astro';
+
+// Importar imágenes desde assets
+import turismoImg from '../../assets/Imagenes/fotos/turismo.webp';
+import empresarialImg from '../../assets/Imagenes/fotos/empresarial.webp';
+import escolarImg from '../../assets/Imagenes/fotos/escolar.webp';
+import saludImg from '../../assets/Imagenes/fotos/salud.webp';
 ---
 
 <section class="bg-white py-16">
@@ -14,7 +20,7 @@ import Tarjeta from '../ui/tarjeta.astro';
       <!-- Servicio de Turismo -->
       <Tarjeta
         titulo="Turismo"
-        imagen="/Imagenes/fotos/turismo.webp"
+        imagen={turismoImg}
         descripcion="Viaja por toda Colombia con confort y seguridad en nuestros vehículos turísticos."
         colorTema="primario"
         href="/servicio-turismo"
@@ -23,7 +29,7 @@ import Tarjeta from '../ui/tarjeta.astro';
       <!-- Servicio Empresarial -->
       <Tarjeta
         titulo="Empresarial"
-        imagen="/Imagenes/fotos/empresarial.webp"
+        imagen={empresarialImg}
         descripcion="Transporte ejecutivo para tus funcionarios y eventos corporativos."
         colorTema="primario"
         href="/servicio-empresarial"
@@ -32,7 +38,7 @@ import Tarjeta from '../ui/tarjeta.astro';
       <!-- Servicio Escolar -->
       <Tarjeta
         titulo="Escolar"
-        imagen="/Imagenes/fotos/escolar.webp"
+        imagen={escolarImg}
         descripcion="Rutas seguras para instituciones educativas con conductores especializados."
         colorTema="primario"
         href="/servicio-escolar"
@@ -41,7 +47,7 @@ import Tarjeta from '../ui/tarjeta.astro';
       <!-- Servicio de Salud -->
       <Tarjeta
         titulo="Salud"
-        imagen="/Imagenes/fotos/salud.webp"
+        imagen={saludImg}
         descripcion="Transporte asistencial no medicalizado para pacientes y acompañantes."
         colorTema="primario"
         href="/servicio-salud"
