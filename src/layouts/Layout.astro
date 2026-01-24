@@ -1,5 +1,17 @@
 ---
 import '../styles/global.css';
+import '@fontsource/poppins/300.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/poppins/800.css';
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/inter/800.css';
 import TopBar from '../componentes/ui/TopBar.astro';
 import Navbar from '../componentes/ui/Navbar.astro';
 import Footer from '../componentes/ui/Footer.astro';
@@ -52,17 +64,8 @@ const {
     <meta property="twitter:image" content={new URL("/Imagenes/Logo.webp", Astro.site)} />
     <meta property="twitter:image:alt" content="Logo Transporte y Turismo Antioquia S.A.S" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-
     <!-- Precargar imágenes críticas del hero y logos -->
     <link rel="preload" href="/Imagenes/Logo.webp" as="image" type="image/webp" />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   </head>
   <body
     class="flex min-h-screen flex-col bg-linear-to-br from-gray-50 to-gray-100 font-[Poppins]"
