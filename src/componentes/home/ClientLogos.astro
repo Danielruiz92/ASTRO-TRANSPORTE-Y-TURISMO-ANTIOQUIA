@@ -26,15 +26,15 @@ const logos = [
     <!-- Carrusel continuo -->
     <div class="relative overflow-hidden rounded-2xl">
       <!-- Contenedor del carrusel con efecto de máscara -->
-      <div class="carousel-container relative h-56">
-        <div class="carousel-track flex gap-8 animate-scroll">
+      <div class="carousel-container relative h-40 md:h-56" id="carousel-container">
+        <div class="carousel-track flex gap-4 md:gap-8" id="carousel-track">
           {logos.map((logo) => (
-            <div class="carousel-item flex min-w-[400px] shrink-0 items-center justify-center">
-              <div class="flex h-40 w-80 items-center justify-center rounded-xl bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <div class="carousel-item flex min-w-[280px] md:min-w-[400px] shrink-0 items-center justify-center">
+              <div class="flex h-32 w-64 md:h-40 md:w-80 items-center justify-center rounded-xl bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  class="h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  class="h-20 md:h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                   width={400}
                 />
               </div>
@@ -42,12 +42,12 @@ const logos = [
           ))}
           {/* Duplicar los logos para efecto continuo */}
           {logos.map((logo) => (
-            <div class="carousel-item flex min-w-[400px] shrink-0 items-center justify-center">
-              <div class="flex h-40 w-80 items-center justify-center rounded-xl bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <div class="carousel-item flex min-w-[280px] md:min-w-[400px] shrink-0 items-center justify-center">
+              <div class="flex h-32 w-64 md:h-40 md:w-80 items-center justify-center rounded-xl bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  class="h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  class="h-20 md:h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                   width={400}
                 />
               </div>
@@ -63,28 +63,81 @@ const logos = [
   </div>
 </section>
 
+<script>
+  (() => {
+    const track = document.getElementById('carousel-track');
+    const container = document.getElementById('carousel-container');
+    
+    if (!track || !container) return;
+    
+    let currentPosition = 0;
+    let isPaused = false;
+    
+    // Calcular el ancho del primer set de logos (5 logos)
+    const getFirstSetWidth = (): number => {
+      const items = track.querySelectorAll('.carousel-item');
+      let width = 0;
+      const gap = window.innerWidth < 768 ? 16 : 32; // gap-4 = 16px, gap-8 = 32px
+      
+      // Sumar el ancho de los primeros 5 items + gaps
+      for (let i = 0; i < 5; i++) {
+        const item = items[i] as HTMLElement;
+        if (item) {
+          width += item.offsetWidth;
+          if (i < 4) width += gap;
+        }
+      }
+      
+      return width;
+    };
+
+    // Función de animación
+    const animate = () => {
+      if (isPaused) {
+        requestAnimationFrame(animate);
+        return;
+      }
+      
+      const firstSetWidth = getFirstSetWidth();
+      const speed = window.innerWidth < 768 ? 1.0 : 0.8; // Velocidad en px por frame (móvil un poco más rápido, escritorio más lento)
+      
+      currentPosition -= speed;
+      
+      if (currentPosition <= -firstSetWidth) {
+        currentPosition = 0;
+      }
+      
+      track.style.transform = `translateX(${currentPosition}px)`;
+      requestAnimationFrame(animate);
+    };
+
+    // Pausar en hover
+    container.addEventListener('mouseenter', () => {
+      isPaused = true;
+    });
+    
+    container.addEventListener('mouseleave', () => {
+      isPaused = false;
+    });
+
+    // Iniciar animación
+    requestAnimationFrame(animate);
+
+    // Recalcular en resize
+    let resizeTimeout: number | undefined;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(() => {
+        currentPosition = 0;
+      }, 250);
+    });
+  })();
+</script>
+
 <style>
   .carousel-container {
     overflow: hidden;
     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-  }
-
-  .carousel-track {
-    animation: scroll 30s linear infinite;
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  /* Pausa en hover */
-  .carousel-container:hover .carousel-track {
-    animation-play-state: paused;
   }
 </style>
