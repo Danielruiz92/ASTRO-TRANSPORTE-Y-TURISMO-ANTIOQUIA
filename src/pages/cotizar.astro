@@ -57,89 +57,6 @@ import Boton from '../componentes/ui/boton.astro';
               </select>
             </div>
 
-            <!-- Tipo de Vehículo -->
-            <div>
-              <label for="vehicle-type" class="text-dark mb-2 block font-[Poppins] font-semibold">
-                Tipo de Vehículo <span class="text-red-500">*</span>
-              </label>
-              <select
-                id="vehicle-type"
-                name="vehicleType"
-                required
-                class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
-              >
-                <option value="">Selecciona un vehículo</option>
-                <option value="automovil">Automóvil/Camioneta (1-4 pasajeros)</option>
-                <option value="van">Van/Minivan (7-19 pasajeros)</option>
-                <option value="buseta">Buseta (20-30 pasajeros)</option>
-                <option value="bus">Bus (30-40 pasajeros)</option>
-              </select>
-            </div>
-
-            <!-- Grid de 2 columnas -->
-            <div class="grid gap-4 sm:grid-cols-2">
-              <!-- Número de Pasajeros -->
-              <div>
-                <label for="passengers" class="text-dark mb-2 block font-[Poppins] font-semibold">
-                  Pasajeros <span class="text-red-500">*</span>
-                </label>
-                <input
-                  type="number"
-                  id="passengers"
-                  name="passengers"
-                  min="1"
-                  max="40"
-                  required
-                  class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
-                  placeholder="Ej: 10"
-                />
-              </div>
-
-              <!-- Fecha del Servicio -->
-              <div>
-                <label for="service-date" class="text-dark mb-2 block font-[Poppins] font-semibold">
-                  Fecha <span class="text-red-500">*</span>
-                </label>
-                <input
-                  type="date"
-                  id="service-date"
-                  name="serviceDate"
-                  required
-                  class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
-                />
-              </div>
-            </div>
-
-            <!-- Origen -->
-            <div>
-              <label for="origin" class="text-dark mb-2 block font-[Poppins] font-semibold">
-                Lugar de Origen <span class="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="origin"
-                name="origin"
-                required
-                class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
-                placeholder="Ej: Medellín, Centro"
-              />
-            </div>
-
-            <!-- Destino -->
-            <div>
-              <label for="destination" class="text-dark mb-2 block font-[Poppins] font-semibold">
-                Lugar de Destino <span class="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="destination"
-                name="destination"
-                required
-                class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
-                placeholder="Ej: Guatapé"
-              />
-            </div>
-
             <!-- Nombre -->
             <div>
               <label for="name" class="text-dark mb-2 block font-[Poppins] font-semibold">
@@ -381,7 +298,7 @@ import Boton from '../componentes/ui/boton.astro';
 
       if (response.ok) {
         formMessage.textContent =
-          '✅ ¡Cotización enviada con éxito! Te contactaremos pronto.';
+          '✅ ¡Formulario enviado con éxito! Te contactaremos pronto.';
         formMessage.className =
           'mt-4 rounded-lg p-4 text-center font-[Inter] bg-green-100 text-green-700 border border-green-300';
         formMessage.classList.remove('hidden');
@@ -397,11 +314,4 @@ import Boton from '../componentes/ui/boton.astro';
       formMessage.classList.remove('hidden');
     }
   });
-
-  // Establecer fecha mínima (hoy)
-  const dateInput = document.getElementById('service-date') as HTMLInputElement;
-  if (dateInput) {
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.min = today;
-  }
 </script>
