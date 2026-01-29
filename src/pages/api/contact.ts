@@ -78,11 +78,17 @@ export const POST: APIRoute = async ({ request }) => {
       eventos: 'Eventos Especiales',
       aeropuerto: 'Traslado al Aeropuerto',
       otro: 'Otro',
+      peticion: 'Petición',
+      queja: 'Queja',
+      reclamo: 'Reclamo',
+      sugerencia: 'Sugerencia',
+      felicitacion: 'Felicitación',
     };
     const serviceTypeName = serviceTypeMap[serviceType] || serviceType || 'No especificado';
     
-    // Determinar si es una solicitud de cotización
+    // Determinar si es una solicitud de cotización o PQR
     const isQuoteRequest = data.subject && data.subject.includes('Cotización');
+    const isPQRRequest = data.subject && data.subject.includes('PQR');
     
     // Construir el contenido del email en formato HTML
     const emailBody = `
@@ -91,7 +97,7 @@ export const POST: APIRoute = async ({ request }) => {
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>${isQuoteRequest ? 'Nueva Solicitud de Cotización' : 'Nuevo Contacto'}</title>
+          <title>${isPQRRequest ? 'Nuevo Formulario PQR' : isQuoteRequest ? 'Nueva Solicitud de Cotización' : 'Nuevo Contacto'}</title>
           <style>
             body {
               font-family: Arial, sans-serif;
@@ -141,7 +147,7 @@ export const POST: APIRoute = async ({ request }) => {
         </head>
         <body>
           <div class="container">
-            <h2>${isQuoteRequest ? 'Nueva Solicitud de Cotización Recibida' : 'Nuevo Contacto Recibido'}</h2>
+            <h2>${isPQRRequest ? 'Nuevo Formulario PQR Recibido' : isQuoteRequest ? 'Nueva Solicitud de Cotización Recibida' : 'Nuevo Contacto Recibido'}</h2>
             
             <div class="field">
               <div class="label">Nombre:</div>
@@ -159,7 +165,7 @@ export const POST: APIRoute = async ({ request }) => {
             </div>
             
             <div class="field">
-              <div class="label">Tipo de Servicio:</div>
+              <div class="label">${isPQRRequest ? 'Tipo de PQR:' : 'Tipo de Servicio:'}</div>
               <div class="value">${escapeHtml(serviceTypeName)}</div>
             </div>
             
@@ -169,7 +175,7 @@ export const POST: APIRoute = async ({ request }) => {
             </div>
             
             <div class="footer">
-              <p><em>Enviado desde el ${isQuoteRequest ? 'formulario de cotización' : 'formulario de contacto'} del sitio web de Transporte y Turismo Antioquia</em></p>
+              <p><em>Enviado desde el ${isPQRRequest ? 'formulario PQR' : isQuoteRequest ? 'formulario de cotización' : 'formulario de contacto'} del sitio web de Transporte y Turismo Antioquia</em></p>
               <p><em>Fecha: ${new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' })}</em></p>
             </div>
           </div>
@@ -181,7 +187,9 @@ export const POST: APIRoute = async ({ request }) => {
     const { data: emailData, error: emailError } = await resend.emails.send({
       from: import.meta.env.RESEND_FROM_EMAIL,
       to: toEmail,
-      subject: isQuoteRequest
+      subject: isPQRRequest
+        ? `Formulario PQR (${serviceTypeName}) - ${name}`
+        : isQuoteRequest
         ? `Solicitud de Cotización - ${serviceTypeName}`
         : `Nuevo contacto de ${name} - ${serviceTypeName}`,
       html: emailBody,
@@ -205,7 +213,9 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(
       JSON.stringify({
         success: true,
-        message: isQuoteRequest
+        message: isPQRRequest
+          ? '¡Tu PQR ha sido recibido! Te contactaremos pronto para dar respuesta.'
+          : isQuoteRequest
           ? '¡Solicitud de cotización enviada! Te contactaremos pronto con tu propuesta.'
           : '¡Gracias por contactarnos! Te responderemos pronto.',
       }),

@@ -23,11 +23,10 @@ import Boton from '../componentes/ui/boton.astro';
           <!-- Título -->
           <div class="mb-8">
             <h2 class="text-dark mb-4 font-[Poppins] text-3xl font-bold">
-              Solicita tu Cotización
+              Formulario PQR
             </h2>
             <p class="font-[Inter] text-lg text-gray-600">
-              Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas con
-              una propuesta personalizada.
+              Completa el formulario para enviar tu Petición, Queja o Reclamo. Nos pondremos en contacto contigo en menos de 24 horas.
             </p>
           </div>
 
@@ -36,10 +35,10 @@ import Boton from '../componentes/ui/boton.astro';
             id="quote-form"
             class="space-y-6 rounded-2xl bg-white p-8 shadow-lg"
           >
-            <!-- Tipo de Servicio -->
+            <!-- Tipo de PQR -->
             <div>
               <label for="service-type" class="text-dark mb-2 block font-[Poppins] font-semibold">
-                Tipo de Servicio <span class="text-red-500">*</span>
+                Tipo de PQR <span class="text-red-500">*</span>
               </label>
               <select
                 id="service-type"
@@ -47,13 +46,12 @@ import Boton from '../componentes/ui/boton.astro';
                 required
                 class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
               >
-                <option value="">Selecciona un servicio</option>
-                <option value="empresarial">Transporte Empresarial</option>
-                <option value="turistico">Turismo y Excursiones</option>
-                <option value="eventos">Eventos Especiales</option>
-                <option value="escolar">Transporte Escolar</option>
-                <option value="aeropuerto">Traslado al Aeropuerto</option>
-                <option value="otro">Otro</option>
+                <option value="">Selecciona el tipo</option>
+                <option value="peticion">Petición</option>
+                <option value="queja">Queja</option>
+                <option value="reclamo">Reclamo</option>
+                <option value="sugerencia">Sugerencia</option>
+                <option value="felicitacion">Felicitación</option>
               </select>
             </div>
 
@@ -121,7 +119,7 @@ import Boton from '../componentes/ui/boton.astro';
 
             <!-- Botón de envío -->
             <Boton
-              texto="Solicitar Cotización"
+              texto="Enviar PQR"
               variante="primario"
               type="submit"
               clasePersonalizada="w-full py-4"
@@ -292,13 +290,13 @@ import Boton from '../componentes/ui/boton.astro';
         },
         body: JSON.stringify({
           ...data,
-          subject: `Solicitud de Cotización - ${data.serviceType}`,
+          subject: `Formulario PQR - ${data.serviceType}`,
         }),
       });
 
       if (response.ok) {
         formMessage.textContent =
-          '✅ ¡Formulario enviado con éxito! Te contactaremos pronto.';
+          '✅ ¡PQR enviado con éxito! Te contactaremos pronto para dar respuesta.';
         formMessage.className =
           'mt-4 rounded-lg p-4 text-center font-[Inter] bg-green-100 text-green-700 border border-green-300';
         formMessage.classList.remove('hidden');
@@ -308,7 +306,7 @@ import Boton from '../componentes/ui/boton.astro';
       }
     } catch {
       formMessage.textContent =
-        '❌ Hubo un error al enviar la cotización. Por favor, intenta nuevamente o contáctanos por WhatsApp.';
+        '❌ Hubo un error al enviar el PQR. Por favor, intenta nuevamente o contáctanos por WhatsApp.';
       formMessage.className =
         'mt-4 rounded-lg p-4 text-center font-[Inter] bg-red-100 text-red-700 border border-red-300';
       formMessage.classList.remove('hidden');
