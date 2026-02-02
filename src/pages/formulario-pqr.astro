@@ -5,12 +5,12 @@ import Boton from '../componentes/ui/boton.astro';
 ---
 
 <Layout
-  title="Cotizar Transporte - Solicita tu Presupuesto Personalizado Gratis"
-  description="💰 Cotización gratis en 24 horas. Precios competitivos sin compromiso. Planes personalizados para empresas, colegios, turismo y servicios especiales. ¡Solicita tu presupuesto!"
+  title="Formulario PQRS - Peticiones, Quejas, Reclamos y Sugerencias"
+  description="📝 Envía tu Petición, Queja, Reclamo, Sugerencia o Felicitación. Te contactaremos en menos de 24 horas. Sistema de atención al cliente de Transporte y Turismo Antioquia."
 >
   <!-- Header de la página -->
   <PageHeader
-    titulo="Cotizar Servicio"
+    titulo="Formulario PQRS"
     imagenFondo="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
   />
 
@@ -18,15 +18,15 @@ import Boton from '../componentes/ui/boton.astro';
   <main class="bg-light py-16">
     <div class="container mx-auto px-4">
       <div class="grid gap-12 lg:grid-cols-2">
-        <!-- Columna izquierda: Formulario de cotización -->
+        <!-- Columna izquierda: Formulario PQRS -->
         <div>
           <!-- Título -->
           <div class="mb-8">
             <h2 class="text-dark mb-4 font-[Poppins] text-3xl font-bold">
-              Formulario PQR
+              Formulario PQRS
             </h2>
             <p class="font-[Inter] text-lg text-gray-600">
-              Completa el formulario para enviar tu Petición, Queja o Reclamo. Nos pondremos en contacto contigo en menos de 24 horas.
+              Completa el formulario para enviar tu Petición, Queja, Reclamo o Sugerencia. Nos pondremos en contacto contigo en menos de 24 horas.
             </p>
           </div>
 
@@ -35,10 +35,10 @@ import Boton from '../componentes/ui/boton.astro';
             id="quote-form"
             class="space-y-6 rounded-2xl bg-white p-8 shadow-lg"
           >
-            <!-- Tipo de PQR -->
+            <!-- Tipo de PQRS -->
             <div>
               <label for="service-type" class="text-dark mb-2 block font-[Poppins] font-semibold">
-                Tipo de PQR <span class="text-red-500">*</span>
+                Tipo de PQRS <span class="text-red-500">*</span>
               </label>
               <select
                 id="service-type"
@@ -113,13 +113,13 @@ import Boton from '../componentes/ui/boton.astro';
                 name="message"
                 rows="4"
                 class="focus:border-primary focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-3 font-[Inter] transition-colors duration-200 focus:outline-none focus:ring-2"
-                placeholder="Cuéntanos más detalles sobre tu viaje..."
+                placeholder="Cuéntanos más detalles sobre tu solicitud..."
               ></textarea>
             </div>
 
             <!-- Botón de envío -->
             <Boton
-              texto="Enviar PQR"
+              texto="Enviar PQRS"
               variante="primario"
               type="submit"
               clasePersonalizada="w-full py-4"
@@ -135,10 +135,10 @@ import Boton from '../componentes/ui/boton.astro';
 
         <!-- Columna derecha: Información adicional -->
         <div class="space-y-8">
-          <!-- Beneficios de cotizar con nosotros -->
+          <!-- Beneficios de usar nuestro sistema PQRS -->
           <div class="rounded-2xl bg-white p-8 shadow-lg">
             <h3 class="text-dark mb-6 font-[Poppins] text-2xl font-bold">
-              ¿Por qué cotizar con nosotros?
+              ¿Por qué usar nuestro sistema PQRS?
             </h3>
             <ul class="space-y-4">
               <li class="flex items-start gap-3">
@@ -155,9 +155,9 @@ import Boton from '../componentes/ui/boton.astro';
                     d="M5 13l4 4L19 7"></path>
                 </svg>
                 <div>
-                  <h4 class="text-dark font-[Poppins] font-semibold">Precios Competitivos</h4>
+                  <h4 class="text-dark font-[Poppins] font-semibold">Atención Personalizada</h4>
                   <p class="font-[Inter] text-sm text-gray-600">
-                    Las mejores tarifas del mercado sin comprometer la calidad
+                    Tu solicitud será atendida por nuestro equipo especializado
                   </p>
                 </div>
               </li>
@@ -195,9 +195,9 @@ import Boton from '../componentes/ui/boton.astro';
                     d="M5 13l4 4L19 7"></path>
                 </svg>
                 <div>
-                  <h4 class="text-dark font-[Poppins] font-semibold">Asesoría Personalizada</h4>
+                  <h4 class="text-dark font-[Poppins] font-semibold">Seguimiento Garantizado</h4>
                   <p class="font-[Inter] text-sm text-gray-600">
-                    Te ayudamos a elegir el mejor servicio para tu necesidad
+                    Mantente informado del estado de tu solicitud
                   </p>
                 </div>
               </li>
@@ -215,9 +215,9 @@ import Boton from '../componentes/ui/boton.astro';
                     d="M5 13l4 4L19 7"></path>
                 </svg>
                 <div>
-                  <h4 class="text-dark font-[Poppins] font-semibold">Sin Compromiso</h4>
+                  <h4 class="text-dark font-[Poppins] font-semibold">Proceso Confidencial</h4>
                   <p class="font-[Inter] text-sm text-gray-600">
-                    Cotización totalmente gratuita y sin obligación de contratar
+                    Tu información será tratada con total confidencialidad
                   </p>
                 </div>
               </li>
@@ -234,7 +234,7 @@ import Boton from '../componentes/ui/boton.astro';
               <Boton
                 texto="Chatear por WhatsApp"
                 variante="primario"
-                href="https://wa.me/573043368556?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización%20para%20un%20servicio%20de%20transporte."
+                href="https://wa.me/573043368556?text=Hola,%20me%20gustaría%20enviar%20una%20PQRS."
                 target="_blank"
                 clasePersonalizada="w-full bg-white text-primary hover:bg-gray-100"
               />
@@ -290,13 +290,13 @@ import Boton from '../componentes/ui/boton.astro';
         },
         body: JSON.stringify({
           ...data,
-          subject: `Formulario PQR - ${data.serviceType}`,
+          subject: `Formulario PQRS - ${data.serviceType}`,
         }),
       });
 
       if (response.ok) {
         formMessage.textContent =
-          '✅ ¡PQR enviado con éxito! Te contactaremos pronto para dar respuesta.';
+          '✅ ¡PQRS enviado con éxito! Te contactaremos pronto para dar respuesta.';
         formMessage.className =
           'mt-4 rounded-lg p-4 text-center font-[Inter] bg-green-100 text-green-700 border border-green-300';
         formMessage.classList.remove('hidden');
@@ -306,7 +306,7 @@ import Boton from '../componentes/ui/boton.astro';
       }
     } catch {
       formMessage.textContent =
-        '❌ Hubo un error al enviar el PQR. Por favor, intenta nuevamente o contáctanos por WhatsApp.';
+        '❌ Hubo un error al enviar el PQRS. Por favor, intenta nuevamente o contáctanos por WhatsApp.';
       formMessage.className =
         'mt-4 rounded-lg p-4 text-center font-[Inter] bg-red-100 text-red-700 border border-red-300';
       formMessage.classList.remove('hidden');

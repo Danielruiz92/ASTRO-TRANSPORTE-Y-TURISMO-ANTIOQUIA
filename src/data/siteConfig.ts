@@ -31,6 +31,7 @@ export const siteConfig = {
     { name: "Flota", href: "/flota" },
     { name: "Nosotros", href: "/nosotros" },
     { name: "Contacto", href: "/contacto" },
+    { name: "Formulario PQRS", href: "/formulario-pqr" },
   ],
   
   certifications: [
